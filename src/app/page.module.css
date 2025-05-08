@@ -8,9 +8,11 @@
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
+  width: 1920px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
+  border: 1px red solid;
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
