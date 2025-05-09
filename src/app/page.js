@@ -1,10 +1,14 @@
-import styles from "./page.module.css";
-import { Header } from "@/components/Header/Header";
+import { NavigationMenu } from "@/components/NavigationMenu/NavigationMenu";
+import Banner from "@/components/Banner/Banner";
+import AboutPPo from "@/components/AboutPPO/AboutPPo";
+import styles from './page.module.css'
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Header />
+      <NavigationMenu />
+      <Banner />
+      <AboutPPo />
     </div>
   );
 }
