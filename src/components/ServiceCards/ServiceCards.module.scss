@@ -1,0 +1,46 @@
+.serviceCards {
+    width: 1140px;
+    height: 700px;
+    border: 1px red solid;
+}
+
+.cardsTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 60px;
+    margin: 100px 0 50px 100px;
+    border: 1px green solid;
+}
+
+.cardsContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 350px;
+    border: 1px rgb(174, 0, 255) solid;
+}
+
+.cardsItem {
+    width: 300px;
+    transition: .4s;
+    border: 1px green solid;
+}
+.cardsItem:hover {
+    scale: 1.09;
+}
+
+.image {
+    height: 225px;
+    margin-bottom: 15px;
+    border: 1px yellow solid;
+}
+
+.img {
+    object-fit: cover;
+}
+
+.cardsInfo {
+    margin: 10px;
+}
