@@ -12,7 +12,7 @@ export default function AboutPPo() {
             </p>
         </div>
         <div className={styles.imageContainer}>
-            <Image className={styles.image} src={background} sizes={50} />
+            <Image className={styles.image} src={background} sizes={50} alt='Фон' />
         </div>
     </div>
   )
