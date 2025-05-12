@@ -19,25 +19,25 @@
     justify-content: space-around;
     width: 100%;
     height: 350px;
-    border: 1px rgb(174, 0, 255) solid;
 }
 
 .cardsItem {
     width: 300px;
     transition: .4s;
-    border: 1px green solid;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 20px -5px 30px 5px rgba(32, 32, 32, 0.432);
 }
 .cardsItem:hover {
     scale: 1.09;
 }
 
 .image {
-    height: 225px;
+    height: auto;
     margin-bottom: 15px;
-    border: 1px yellow solid;
 }
 
 .img {
+    border-radius: 35px;
     object-fit: cover;
 }
 

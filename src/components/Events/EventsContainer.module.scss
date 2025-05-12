@@ -1,0 +1,24 @@
+.content {
+    display: flex;
+    width: 1140px;
+    height: 900px;
+    border: 1px red solid;
+}
+
+.eventsContainer {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.eventsItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border: 1px red solid;
+    width: 400px;
+    height: 400px;
+}
