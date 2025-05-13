@@ -5,7 +5,7 @@ export default function EventsContainer() {
   return (
     <div className={styles.content}>
         <div className={styles.eventsContainer}>
-            <div className={styles.eventsItem}>
+            <div className={`${styles.eventsItem} ${styles.eventsTitle}`}>
             <h1>Актуальные события</h1>
             <p>Узнайте о предстоящих мероприятиях</p>
         </div>
