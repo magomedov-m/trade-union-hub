@@ -4,6 +4,7 @@ import AboutPPo from "@/components/AboutPPO/AboutPPo";
 import styles from './page.module.css'
 import ServiceCards from "@/components/ServiceCards/ServiceCards";
 import EventsContainer from "@/components/Events/EventsContainer";
+import Contacts from "@/components/Contacts/Contacts";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutPPo />
       <ServiceCards />
       <EventsContainer />
+      <Contacts />
     </div>
   );
 }
