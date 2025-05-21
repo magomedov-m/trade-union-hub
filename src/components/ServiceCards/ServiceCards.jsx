@@ -35,7 +35,7 @@ export default function ServiceCards() {
         {cardsInfo.map((item) => {
           return (
             <div className={styles.cardsItem} key={item.id}>
-              <figure className={styles.image}><Image className={styles.img} src={item.image}></Image></figure>
+              <figure className={styles.image}><Image alt='Документы' className={styles.img} src={item.image}></Image></figure>
               <div className={styles.cardsInfo}>
                 <h3 className={styles.title}>{item.title}</h3>
                 <p className={styles.text}>{item.text}</p>

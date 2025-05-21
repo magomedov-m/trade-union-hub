@@ -1,0 +1,48 @@
+.serviceCards {
+  width: 1140px;
+  height: 700px;
+  border: 1px red solid;
+}
+
+.cardsTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 60px;
+  margin: 100px 0 50px 100px;
+  border: 1px green solid;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 350px;
+}
+
+.cardsItem {
+  width: 300px;
+  transition: 0.4s;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 20px -5px 30px 5px rgba(32, 32, 32, 0.432);
+}
+
+.cardsItem:hover {
+  scale: 1.09;
+}
+
+.image {
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.img {
+  border-radius: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cardsInfo {
+  margin: 10px;
+}/*# sourceMappingURL=ServiceCards.module.css.map */
