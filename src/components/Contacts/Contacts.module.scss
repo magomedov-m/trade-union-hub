@@ -1,5 +1,14 @@
 .contactContainer {
     width: 1140px;
     height: 800px;
+    display: flex;
+    align-items: center;
     border: 1px red solid;
+}
+
+.contactForm {
+    width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }

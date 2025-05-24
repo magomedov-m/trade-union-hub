@@ -9,7 +9,6 @@ import Contacts from "@/components/Contacts/Contacts";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <NavigationMenu />
       <Banner />
       <AboutPPo />
       <ServiceCards />

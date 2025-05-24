@@ -1,9 +1,9 @@
 .formContainer {
-    margin-left: 50px;
-    padding: 20px 0; 
+    padding: 20px 10px; 
     width: 400px;
-    height: 650px;
-    border: 1px rgb(0, 17, 255) solid;
+    min-height: 450px;
+    border-radius: 10px;
+    background-color: rgba(241, 239, 239, 0.863);
 }
 .titleInput {
     font-size: 23px;
@@ -40,11 +40,7 @@
 .text {
     margin-bottom: 25px;
 }
-.form {
-    border: 1px red solid;
-}
-.submit {
-}
+
 .h1 {
     display: flex;
     justify-content: space-around;

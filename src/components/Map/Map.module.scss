@@ -1,0 +1,22 @@
+.mapContainer {
+    width: 450px;
+    height: 450px;
+}
+.map {
+    width: 450px;
+    height: 450px;
+    margin-bottom: 10px;
+}
+.iconMessage, .location {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.messageUs {
+    display: flex;
+    margin-bottom: 10px;
+}
+.locationMe {
+    display: flex;
+}
