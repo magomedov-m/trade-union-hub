@@ -2,7 +2,7 @@
     display: flex;
     width: 1140px;
     height: 900px;
-    border: 1px red solid;
+    padding: 25px;
 }
 
 .eventsContainer {
@@ -18,13 +18,28 @@
     align-items: center;
     justify-content: space-around;
     margin: 10px;
-    border: 1px red solid;
     width: 400px;
     height: 400px;
+    position: relative;
+    overflow: hidden;
 }
 
 .eventsTitle {
     flex-direction: column;
     padding: 130px 0;
     justify-content: space-around;
+}
+
+.img {
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.212);
+    transition: transform 0.5s ease;
+}
+.img:hover {
+    transform: scale(1.2);
+}
+
+.p {
+    font-size: 20px;
 }

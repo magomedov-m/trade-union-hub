@@ -1,0 +1,64 @@
+.footer {
+  background-color: #1e293b; // Тёмный фон
+  color: #ffffff; // Белый текст
+  padding: 20px 40px; // Добавляем отступы по бокам
+  width: 1140px;
+}
+
+.container {
+  max-width: 1140px; // Ограничение максимальной ширины
+  margin: 0 auto; // Центровка контейнера
+  display: flex;
+  justify-content: space-between; // Равномерное распределение
+  align-items: flex-start; // Выравнивание по верху
+  flex-wrap: wrap; // Для адаптивности
+}
+
+.info {
+  flex: 1; // Занимает всё доступное пространство, если нужно
+  text-align: left; // Текст выровнен влево
+  font-size: 1.1rem; // Увеличиваем размер шрифта
+  line-height: 1.6; // Интерлиньяж
+}
+
+.info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.links {
+    margin-top: 20px;
+  flex: 0 0 200px; // Фиксированная ширина блока ссылок
+  display: flex;
+  flex-direction: column; // Ссылки в колонку
+  gap: 20px; // Расстояние между ссылками
+}
+
+.link {
+  color: #f3f4f6; // Светлый цвет текста
+  text-decoration: none;
+  font-size: 1.1rem; // Увеличиваем размер шрифта
+  transition: color 0.3s;
+  font-size: 20px;
+
+  &:hover {
+    color: #38bdf8; // Синий цвет при наведении
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; // Вертикальное расположение на мобильных
+    align-items: center;
+    text-align: center;
+  }
+
+  .info {
+    margin-bottom: 20px;
+  }
+
+  .links {
+    flex: none;
+    align-items: center; // Центровка ссылок
+  }
+}

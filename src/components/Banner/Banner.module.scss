@@ -1,7 +1,23 @@
 .banner {
     width: 1140px;
     height: 700px;
-    border: 1px red solid;
+    background-color:hsla(10,0%,100%,1);
+    background-image:
+    radial-gradient(at 24% 28%, hsla(214,69%,66%,0.63) 0px, transparent 50%),
+    radial-gradient(at 37% 19%, hsla(197,73%,78%,1) 0px, transparent 50%),
+    radial-gradient(at 67% 90%, hsla(217,85%,64%,1) 0px, transparent 50%);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 55px;
+}
+.description {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+.btn {
+    font-size: 24px;
 }
 
 .historyPPOMU {

@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./ServiceCards.module.scss";
 import Image from "next/image";
 import News from '../../app/news.png'
+import Event from '../../../public/iconEvent.png'
+import Docs from '../../../public/docs.png'
 
 export default function ServiceCards() {
   const cardsInfo = [
@@ -13,13 +15,13 @@ export default function ServiceCards() {
     },
     {
       id: 2,
-      image: News,
-      title: "События",
-      text: "Узнайте о предстоящих мероприятиях и встречах.",
+      image: Event,
+      title: "Реестр сотрудников",
+      text: "Ознакомьтесь с действующими сотрудниками профсоюза.",
     },
     {
       id: 3,
-      image: News,
+      image: Docs,
       title: "Документы профсоюза",
       text: "Получите доступ к важным документам и материалам.",
     },
@@ -28,14 +30,15 @@ export default function ServiceCards() {
   return (
     <div className={styles.serviceCards}>
       <div className={styles.cardsTitle}>
-        <h2>Профсоюзные услуги</h2>
-        <p>Ваш надежный партнер в медицине</p>
+        <h2 className={styles.h2}>Интересное</h2>
+        <p className={styles.description}>Читайте всю информацию о профсоюзе</p>
       </div>
       <div className={styles.cardsContainer}>
+
         {cardsInfo.map((item) => {
           return (
             <div className={styles.cardsItem} key={item.id}>
-              <figure className={styles.image}><Image alt='Документы' className={styles.img} src={item.image}></Image></figure>
+              <figure className={styles.image}><Image alt={item.title} className={styles.img} src={item.image} /></figure>
               <div className={styles.cardsInfo}>
                 <h3 className={styles.title}>{item.title}</h3>
                 <p className={styles.text}>{item.text}</p>
@@ -43,6 +46,7 @@ export default function ServiceCards() {
             </div>
           );
         })}
+        
       </div>
     </div>
   );
