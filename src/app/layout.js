@@ -1,3 +1,4 @@
+'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
@@ -13,10 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "ПрофМед",
-  description: "Веб-приложение для первичной профсоюзной организации мед университета",
-};
+// export const metadata = {
+//   title: "ПрофМед",
+//   description: "Веб-приложение для первичной профсоюзной организации мед университета",
+// };
 
 export default function RootLayout({ children }) {
   return (
