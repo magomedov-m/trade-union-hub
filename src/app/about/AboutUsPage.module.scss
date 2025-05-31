@@ -1,11 +1,4 @@
-$primary-color: #1e90ff; // Основной цвет
-$text-primary: #333333; // Основной цвет текста
-$text-secondary: #666666; // Второстепенный цвет текста
-$border-color: #dddddd; // Цвет границ
-
-// Дополнительные цвета, если нужны
-$background-light: #f9f9f9;
-$background-gradient: linear-gradient(120deg, #d9f2ff, #f9faff);
+@import '../variables.scss';
 
 .container {
   width: 1140px;
@@ -137,9 +130,9 @@ $background-gradient: linear-gradient(120deg, #d9f2ff, #f9faff);
     text-align: center;
   }
 
-  .teamGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .teamFlex {
+    display: flex;
+    justify-content: space-around;
     gap: 20px;
 
     .teamMember {

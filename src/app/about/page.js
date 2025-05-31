@@ -71,7 +71,7 @@ export default function About() {
       {/* Team Section */}
       <section className={styles.team}>
         <h2>Наша команда</h2>
-        <div className={styles.teamGrid}>
+        <div className={styles.teamFlex}>
           <div className={styles.teamMember}>
             <img src="/images/team1.jpg" alt="Член команды" />
             <h3>Иван Иванов</h3>
