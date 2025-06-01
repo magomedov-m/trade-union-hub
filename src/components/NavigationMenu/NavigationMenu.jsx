@@ -24,7 +24,7 @@ export const NavigationMenu = () => {
           <Link className={styles.navItem} href='/'>Главная</Link>
           <Link className={styles.navItem} href='/about'>О нас</Link>
           <Link className={styles.navItem} href='/registry'>Услуги</Link>
-          <Link className={styles.navItem} href='/events'>События</Link>
+          
         </AnimatePresence>
         <Button variant="contained" color="primary">
           Контакты

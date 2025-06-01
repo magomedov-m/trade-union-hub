@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./ServiceCards.module.scss";
 import Image from "next/image";
-import News from '../../app/news.png'
-import Event from '../../../public/iconEvent.png'
-import Docs from '../../../public/docs.png'
+import News from "../../app/news.png";
+import Event from "../../../public/iconEvent.png";
+import Docs from "../../../public/docs.png";
+import Link from "next/link";
 
 export default function ServiceCards() {
   const cardsInfo = [
@@ -12,12 +13,14 @@ export default function ServiceCards() {
       image: News,
       title: "Новости профсоюза",
       text: "Следите за актуальными событиями и важными новостями.",
+      link: "/events",
     },
     {
       id: 2,
       image: Event,
       title: "Реестр сотрудников",
       text: "Ознакомьтесь с действующими сотрудниками профсоюза.",
+      link: '/employee-registry'
     },
     {
       id: 3,
@@ -34,19 +37,25 @@ export default function ServiceCards() {
         <p className={styles.description}>Читайте всю информацию о профсоюзе</p>
       </div>
       <div className={styles.cardsContainer}>
-
         {cardsInfo.map((item) => {
           return (
-            <div className={styles.cardsItem} key={item.id}>
-              <figure className={styles.image}><Image alt={item.title} className={styles.img} src={item.image} /></figure>
-              <div className={styles.cardsInfo}>
-                <h3 className={styles.title}>{item.title}</h3>
-                <p className={styles.text}>{item.text}</p>
+            <Link key={item.id} href={item.link || ''}>
+              <div className={styles.cardsItem}>
+                <figure className={styles.image}>
+                  <Image
+                    alt={item.title}
+                    className={styles.img}
+                    src={item.image}
+                  />
+                </figure>
+                <div className={styles.cardsInfo}>
+                  <h3 className={styles.title}>{item.title}</h3>
+                  <p className={styles.text}>{item.text}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
-        
       </div>
     </div>
   );
