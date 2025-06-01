@@ -36,11 +36,11 @@
     width: 300px;
     transition: .4s;
     border-radius: 40px 40px;
-    box-shadow: 20px -5px 30px 5px rgba(32, 32, 32, 0.432);
     background-color: rgb(255, 255, 255);
 }
 .cardsItem:hover {
-    scale: 1.09;
+    transform: translateY(-10px);
+    box-shadow: 20px -5px 30px 5px rgba(255, 255, 255, 0.432);
 }
 
 .image {
