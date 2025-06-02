@@ -5,8 +5,7 @@ import Button from "@mui/material/Button";
 import Image from "next/image";
 import Logo from "../../app/Logo.png";
 import Link from "next/link";
-import About from "@/app/about/page";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 
 export const NavigationMenu = () => {
@@ -24,7 +23,6 @@ export const NavigationMenu = () => {
           <Link className={styles.navItem} href='/'>Главная</Link>
           <Link className={styles.navItem} href='/about'>О нас</Link>
           <Link className={styles.navItem} href='/registry'>Услуги</Link>
-          
         </AnimatePresence>
         <Button variant="contained" color="primary">
           Контакты

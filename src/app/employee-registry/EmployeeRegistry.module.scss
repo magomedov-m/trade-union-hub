@@ -1,0 +1,158 @@
+.registryPage {
+  padding: 2rem;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', sans-serif;
+  width: 1140px;
+  min-height: 100vh;
+  height: auto;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+  }
+}
+
+.searchSection {
+  margin-bottom: 2rem;
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: 0.3s;
+
+    &:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  font-size: 2.5rem;
+  color: #64748b;
+  margin-right: 1rem;
+}
+
+.info {
+  flex: 1;
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0f172a;
+  }
+
+  p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #334155;
+  }
+}
+
+.status {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background-color: #d1fae5;
+  color: #065f46;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.details {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #475569;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.contacts {
+  margin-top: 0.5rem;
+
+  a {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: #3b82f6;
+
+    &:hover {
+      color: #2563eb;
+    }
+  }
+}
+
+.messageBtn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+  }
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+/* Цветовое кодирование отделов */
+.it {
+  color: #3b82f6;
+}
+
+.hr {
+  color: #10b981;
+}
+
+.marketing {
+  color: #f59e0b;
+}

@@ -5,6 +5,7 @@ import News from "../../app/news.png";
 import Event from "../../../public/iconEvent.png";
 import Docs from "../../../public/docs.png";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
 
 export default function ServiceCards() {
   const cardsInfo = [
@@ -39,21 +40,23 @@ export default function ServiceCards() {
       <div className={styles.cardsContainer}>
         {cardsInfo.map((item) => {
           return (
-            <Link key={item.id} href={item.link || ''}>
-              <div className={styles.cardsItem}>
-                <figure className={styles.image}>
-                  <Image
-                    alt={item.title}
-                    className={styles.img}
-                    src={item.image}
-                  />
-                </figure>
-                <div className={styles.cardsInfo}>
-                  <h3 className={styles.title}>{item.title}</h3>
-                  <p className={styles.text}>{item.text}</p>
+            <AnimatePresence>
+              <Link key={item.id} href={item.link || ''}>
+                <div className={styles.cardsItem}>
+                  <figure className={styles.image}>
+                    <Image
+                      alt={item.title}
+                      className={styles.img}
+                      src={item.image}
+                    />
+                  </figure>
+                  <div className={styles.cardsInfo}>
+                    <h3 className={styles.title}>{item.title}</h3>
+                    <p className={styles.text}>{item.text}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </AnimatePresence>
           );
         })}
       </div>
