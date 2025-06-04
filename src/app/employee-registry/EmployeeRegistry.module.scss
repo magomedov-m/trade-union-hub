@@ -81,7 +81,7 @@
 }
 
 .status {
-  font-size: 0.85rem;
+  font-size: 14px;
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   background-color: #d1fae5;
@@ -124,9 +124,6 @@
   cursor: pointer;
   transition: 0.3s;
 
-  &:hover {
-    background-color: #2563eb;
-  }
 }
 
 .expandButton {
