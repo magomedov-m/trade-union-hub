@@ -74,18 +74,18 @@ export default function About() {
         <div className={styles.teamFlex}>
           <div className={styles.teamMember}>
             <img src="/images/team1.jpg" alt="Член команды" />
-            <h3>Иван Иванов</h3>
-            <p>Председатель профсоюза</p>
+            <h3>Гусейнова Сабина</h3>
+            <p>Заведующая кафедрой анатомии человека</p>
           </div>
           <div className={styles.teamMember}>
             <img src="/images/team2.jpg" alt="Член команды" />
-            <h3>Анна Петрова</h3>
-            <p>Заместитель председателя</p>
+            <h3>Дамаданова Аминат</h3>
+            <p>Бухгалтер расчетного отдела</p>
           </div>
           <div className={styles.teamMember}>
             <img src="/images/team3.jpg" alt="Член команды" />
-            <h3>Магомед Алиев</h3>
-            <p>Ответственный за мероприятия</p>
+            <h3>Гарунова Раисат</h3>
+            <p>Старший преподаватель кафедры физиологии</p>
           </div>
         </div>
       </section>
@@ -96,17 +96,17 @@ export default function About() {
         <div className={styles.reviewsSlider}>
           <div className={styles.reviewCard}>
             <p>
-              “Профсоюз помог мне в трудной ситуации на работе. Очень благодарен
+              “Профсоюз помог мне в трудной ситуации на работе. Очень благодарна
               за поддержку и внимание к моим проблемам!”
             </p>
-            <h4>Алиса Р.</h4>
+            <h4>Мусаева Венера</h4>
           </div>
           <div className={styles.reviewCard}>
             <p>
               “Участие в мероприятиях профсоюза — это всегда интересно и
               познавательно. Спасибо за такую активную работу!”
             </p>
-            <h4>Руслан К.</h4>
+            <h4>Шахбанов Руслан</h4>
           </div>
         </div>
       </section>
@@ -121,8 +121,8 @@ export default function About() {
           <button type="submit">Отправить</button>
         </form>
         <div className={styles.contactInfo}>
-          <p>Адрес: г. Махачкала, ул. Ленина, 45</p>
-          <p>Телефон: +7 (8722) 56-78-90</p>
+          <p>Республика Дагестан, г. Махачкала, ул. Гусаева, дом 5, этаж 3, каб. 39</p>
+          <p>Тел. для справок: 8 (8722) 67-08-02</p>
           <p>Email: profmed@dsmu.ru</p>
         </div>
       </section>
