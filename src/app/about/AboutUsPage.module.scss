@@ -82,13 +82,13 @@
   }
 
   .featuresGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    justify-content: space-around;
 
     .featureCard {
       background: linear-gradient(120deg, #f0f9ff, #ffffff);
       padding: 20px;
+      width: 250px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

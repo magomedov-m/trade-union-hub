@@ -60,11 +60,11 @@ export default function About() {
             <h3>Полезные документы</h3>
             <p>Получите доступ к важным материалам и ресурсам.</p>
           </div>
-          <div className={styles.featureCard}>
+          {/* <div className={styles.featureCard}>
             <img src="/images/support.svg" alt="Поддержка" />
             <h3>Поддержка</h3>
             <p>Мы всегда готовы ответить на ваши вопросы и помочь.</p>
-          </div>
+          </div> */}
         </div>
       </section>
 

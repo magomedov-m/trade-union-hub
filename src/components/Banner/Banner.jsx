@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Banner.module.scss'
-import { Button } from '@mui/material'
+import BasicModal from '../Modal/Modal'
 
 export default function Banner() {
   return (
@@ -8,7 +8,7 @@ export default function Banner() {
         <div className={styles.historyPPOMU}>
             <h2 className={styles.title}>ПрофМед</h2>
             <p className={styles.description}>Ваш профсоюз - Ваш голос в университете</p>
-            <Button className={styles.btn} variant="contained" color="primary">Прочитать историю</Button>
+            <BasicModal />
         </div>
     </div>
   )
