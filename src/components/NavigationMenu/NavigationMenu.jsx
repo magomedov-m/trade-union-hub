@@ -12,6 +12,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import MenuPopupState from "../MenuPopUp/MenuPopUp";
 
 export const NavigationMenu = () => {
   
@@ -33,9 +34,7 @@ export const NavigationMenu = () => {
           <Link className={styles.navItem} href='/about'>О нас</Link>
           <Link className={styles.navItem} href='/listing'>Услуги</Link>
         </AnimatePresence>
-        <Button variant="contained" color="primary">
-          Контакты
-        </Button>
+        <MenuPopupState />
       </div>
     </div>
 
