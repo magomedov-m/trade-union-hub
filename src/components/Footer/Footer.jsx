@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.scss";
+import MenuPopupState from "../MenuPopUp/MenuPopUp";
 
 const Footer = () => {
   return (
@@ -19,9 +20,7 @@ const Footer = () => {
           <a href="/news" className={styles.link}>
             Новости
           </a>
-          <a href="/contact" className={styles.link}>
-            Контакты
-          </a>
+          <MenuPopupState />
         </div>
       </div>
     </footer>

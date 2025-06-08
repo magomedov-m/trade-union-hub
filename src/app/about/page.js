@@ -2,8 +2,33 @@
 import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
 import styles from "./AboutUsPage.module.scss";
+import { Button, TextField } from "@mui/material";
+import { useState } from "react";
+import supabase from "@/api/supabaseClient";
 
 export default function About() {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [message, setMessage] = useState("");
+  console.log("name:", name, "lastName;", lastName, "message:", message);
+
+  async function addMessage() {
+    const { error } = await supabase
+      .from("feedback_message")
+      .insert([{ 
+        first_name: name,
+        last_name: lastName,
+        text: message
+       }]);
+
+      if (error) console.log(error);
+      else {
+        setName("")
+        setLastName("")
+        setMessage("")
+        console.log('Сообщение отправлено')
+      }
+  }
   return (
     <motion.div
       exit={pageVariables.out}
@@ -113,15 +138,33 @@ export default function About() {
 
       {/* Contact Section */}
       <section className={styles.contact}>
-        <h2>Свяжитесь с нами</h2>
+        <h2>Оставьте свой отзыв</h2>
         <form className={styles.contactForm}>
-          <input type="text" placeholder="Ваше имя" required />
-          <input type="email" placeholder="Ваш email" required />
-          <textarea placeholder="Ваше сообщение" required></textarea>
-          <button type="submit">Отправить</button>
+          <TextField
+            id="outlined-basic"
+            label="Ваше имя"
+            variant="outlined"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Ваша фамилия"
+            variant="outlined"
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Нам интересно Ваше мнение"
+            variant="outlined"
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <Button onClick={() => addMessage()}>Отправить</Button>
         </form>
         <div className={styles.contactInfo}>
-          <p>Республика Дагестан, г. Махачкала, ул. Гусаева, дом 5, этаж 3, каб. 39</p>
+          <p>
+            Республика Дагестан, г. Махачкала, ул. Гусаева, дом 5, этаж 3, каб.
+            39
+          </p>
           <p>Тел. для справок: 8 (8722) 67-08-02</p>
           <p>Email: profmed@dsmu.ru</p>
         </div>
