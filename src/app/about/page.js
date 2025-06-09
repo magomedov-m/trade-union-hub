@@ -115,27 +115,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section className={styles.reviews}>
-        <h2>Отзывы наших членов</h2>
-        <div className={styles.reviewsSlider}>
-          <div className={styles.reviewCard}>
-            <p>
-              “Профсоюз помог мне в трудной ситуации на работе. Очень благодарна
-              за поддержку и внимание к моим проблемам!”
-            </p>
-            <h4>Мусаева Венера</h4>
-          </div>
-          <div className={styles.reviewCard}>
-            <p>
-              “Участие в мероприятиях профсоюза — это всегда интересно и
-              познавательно. Спасибо за такую активную работу!”
-            </p>
-            <h4>Шахбанов Руслан</h4>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className={styles.contact}>
         <h2>Оставьте свой отзыв</h2>
