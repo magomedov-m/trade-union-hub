@@ -1,6 +1,9 @@
 'use client'
 import React, { useState } from "react";
 import styles from "./Admin.module.scss";
+import FeedbackView from "@/components/FeedbackVeiw/FeedbackView";
+import AddEvents from "@/components/AddEvents/AddEvents";
+import DocumentsView from "@/components/DocumentsView/DocumentsView";
 
 const AdminPage = () => {
   const [activeTab, setActiveTab] = useState("reviews");
@@ -8,11 +11,11 @@ const AdminPage = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "reviews":
-        return <div className={styles.content}>Content for managing reviews</div>;
+        return <FeedbackView />
       case "events":
-        return <div className={styles.content}>Content for adding events</div>;
+        return <AddEvents />
       case "documents":
-        return <div className={styles.content}>Content for managing documents</div>;
+        return <DocumentsView />
       default:
         return null;
     }
@@ -35,7 +38,7 @@ const AdminPage = () => {
             activeTab === "events" ? styles.activeButton : styles.button
           }
           onClick={() => setActiveTab("events")}
-        >ДОбавить события
+        >Добавить события
         </button>
         <button
           className={

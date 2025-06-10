@@ -1,0 +1,32 @@
+@import "../../app/variables.scss";
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviewCard {
+  border-radius: 1px red solid;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  margin: 30px;
+
+  p {
+    font-size: 22px;
+    color: $text-primary;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 20px;
+    color: $primary-color;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  h6 {
+    margin-bottom: 10px;
+  }
+}
