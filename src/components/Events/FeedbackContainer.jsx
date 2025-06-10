@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
 export default function EventsContainer() {
+  const [data, setData] = useState([]);
+  async function getApprovedFeedback() {
+    
+  }
   return (
     <div className={styles.feedbackMessages}>
       {/* Reviews Section */}
