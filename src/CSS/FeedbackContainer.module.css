@@ -1,0 +1,42 @@
+.content {
+  font-size: 24px;
+  color: #333;
+}
+
+.feedbackMessages {
+  width: 1140px;
+  height: auto;
+  padding: 25px;
+}
+
+.reviews {
+  margin-bottom: 60px;
+  text-align: center;
+}
+.reviews h2 {
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 30px;
+}
+.reviews .reviewsSlider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+.reviews .reviewsSlider .reviewCard {
+  flex: 0 0 300px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.reviews .reviewsSlider .reviewCard p {
+  font-size: 22px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+.reviews .reviewsSlider .reviewCard h4 {
+  font-size: 20px;
+  color: #1e90ff;
+  font-weight: bold;
+}/*# sourceMappingURL=FeedbackContainer.module.css.map */

@@ -1,0 +1,190 @@
+.content {
+  font-size: 24px;
+  color: #333;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  background: linear-gradient(120deg, #d9f2ff, #f9faff);
+  padding: 60px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+.hero .title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1e90ff;
+}
+.hero .subtitle {
+  font-size: 18px;
+  color: #666666;
+  margin-top: 15px;
+}
+.hero .ctaButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #1e90ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero .ctaButton:hover {
+  background: #0077ea;
+}
+
+/* Mission Section */
+.mission {
+  margin-bottom: 60px;
+  line-height: 1.6;
+  text-align: center;
+}
+.mission h2 {
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 20px;
+}
+.mission p {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 15px;
+}
+.mission .missionImage {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 0;
+  display: block;
+}
+
+/* Features Section */
+.features {
+  margin-bottom: 60px;
+}
+.features h2 {
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.features .featuresGrid {
+  display: flex;
+  justify-content: space-around;
+}
+.features .featuresGrid .featureCard {
+  background: linear-gradient(120deg, #f0f9ff, #ffffff);
+  padding: 20px;
+  width: 250px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.features .featuresGrid .featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 47, 255, 0.39);
+}
+.features .featuresGrid .featureCard img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+.features .featuresGrid .featureCard h3 {
+  font-size: 20px;
+  color: #1e90ff;
+  margin-bottom: 10px;
+}
+.features .featuresGrid .featureCard p {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Team Section */
+.team {
+  margin-bottom: 60px;
+}
+.team h2 {
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.team .teamFlex {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.team .teamFlex .teamMember {
+  text-align: center;
+}
+.team .teamFlex .teamMember img {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.team .teamFlex .teamMember h3 {
+  font-size: 18px;
+  color: #1e90ff;
+  margin-bottom: 5px;
+}
+.team .teamFlex .teamMember p {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Reviews Section */
+/* Contact Section */
+.contact {
+  margin-bottom: 60px;
+}
+.contact h2 {
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contact .contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.contact .contactForm input,
+.contact .contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+}
+.contact .contactForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #1e90ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.contact .contactForm button:hover {
+  background: #0077ea;
+}
+.contact .contactInfo {
+  text-align: center;
+}
+.contact .contactInfo p {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 10px;
+}/*# sourceMappingURL=AboutUsPage.module.css.map */
