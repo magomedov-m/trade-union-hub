@@ -3,7 +3,7 @@ import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
-export default function EventsContainer() {
+export default function FeedbackContainer() {
   return (
     <div className={styles.feedbackMessages}>
       {/* Reviews Section */}
