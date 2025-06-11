@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./FeedbackView.module.scss";
 import supabase from "@/api/supabaseClient";
 import { Button } from "@mui/material";
+import Skeletone from "../Skeletone/Skeletone";
 
 export default function FeedbackView() {
   const [feedback, setFeedback] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -13,26 +13,23 @@ export default function FeedbackView() {
   }, []);
 
   async function fetchFeedback() {
-    setLoading(true);
     try {
       const { data, error } = await supabase
-      .from("feedback_message")
-      .select("*")
-      .order("created_at", { ascending: true });
+        .from("feedback_message")
+        .select("*")
+        .order("created_at", { ascending: true });
 
-    if (error) setError('Ошибка загрузки отзывов:', error)
-    else {
-      setFeedback(data);
-    }
-    } catch(err) {
-      setError('Непредвиденная ошибка при загрузке:', error);
-    } finally {
-      setLoading(false);
+      if (error) setError("Ошибка загрузки отзывов:", error);
+      else {
+        setFeedback(data);
+      }
+    } catch (err) {
+      setError("Непредвиденная ошибка при загрузке:", error);
     }
   }
   return (
     <div className={styles.content}>
-      {!feedback.length ? 'Загрузка' : feedback.map((item, idx) => {
+      {!feedback.length ? Array.from({ length: 10 }, (_, index) => <Skeletone key={index} />) : feedback.map((item, idx) => {
         return <div key={idx} className={styles.reviewCard}>
           <h6>{`${item.created_at}`.slice(0, 19)}</h6>
           <p>
