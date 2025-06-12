@@ -7,7 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function MenuPopupState() {
-  const [role, setRole] = useState("Аккаунт");
+  const [role, setRole] = useState("Войти");
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
@@ -20,7 +20,6 @@ export default function MenuPopupState() {
               <MenuItem onClick={popupState.close}>Админ</MenuItem>
             </Link>
             <MenuItem onClick={popupState.close}>Аккаунт</MenuItem>
-            <MenuItem onClick={popupState.close}>Выйти</MenuItem>
           </Menu>
         </React.Fragment>
       )}

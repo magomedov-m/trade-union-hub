@@ -9,16 +9,33 @@ export default function Form() {
       <h1 className={styles.h1}>Связаться с нами</h1>
       <h2 className={styles.h2}>Мы всегда готовы помочь вам!</h2>
       <form action="" className={styles.form}>
-        <TextField className={styles.textField} id="outlined-basic" label="Имя" variant="outlined" />
-        <TextField className={styles.textField} id="outlined-basic" label="Почта" variant="outlined" />
-        <TextField className={styles.textField}
-          id="outlined-basic"
-          label="Номер телефона"
-          variant="outlined"
-        />
-        <label htmlFor="" className={styles.text}>
+        <div className={styles.textFieldBlock}>
+          <TextField
+            className={styles.textField}
+            id="outlined-basic"
+            label="Имя"
+            variant="outlined"
+          />
+          <TextField
+            className={styles.textField}
+            id="outlined-basic"
+            label="Почта"
+            variant="outlined"
+          />
+          <TextField
+            className={styles.textField}
+            id="outlined-basic"
+            label="Номер телефона"
+            variant="outlined"
+          />
+        </div>
+        <label htmlFor="textarea" className={styles.text}>
           <p className={styles.titleInput}>Сообщение *</p>
-          <textarea className={styles.textarea} name="" id=""></textarea>
+          <textarea
+            className={styles.textarea}
+            name=""
+            id="textarea"
+          ></textarea>
         </label>
         <br />
         <Button className={styles.submit} variant="outlined">
