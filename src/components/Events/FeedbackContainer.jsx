@@ -1,29 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
+import supabase from "@/api/supabaseClient";
 
 export default function EventsContainer() {
+  const [approvedFeedback, setApprovedFeedback] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchApprovedFeedback();
+  }, []);
+
+  async function fetchApprovedFeedback() {
+    try {
+      const { data, error } = await supabase
+        .from("feedback_message")
+        .select("*")
+        .order("created_at", { ascending: true });
+
+      if (error) setError("Ошибка загрузки отзывов:", error);
+      else {
+        setApprovedFeedback(data);
+      }
+    } catch (err) {
+      setError("Непредвиденная ошибка при загрузке:", error);
+    }
+  }
   return (
     <div className={styles.feedbackMessages}>
       {/* Reviews Section */}
       <section className={styles.reviews}>
         <h2>Отзывы о нашей организации</h2>
         <div className={styles.reviewsSlider}>
-          <div className={styles.reviewCard}>
-            <p>
-              “Профсоюз помог мне в трудной ситуации на работе. Очень благодарна
-              за поддержку и внимание к моим проблемам!”
-            </p>
-            <h4>Мусаева Венера</h4>
-          </div>
-          <div className={styles.reviewCard}>
-            <p>
-              “Участие в мероприятиях профсоюза — это всегда интересно и
-              познавательно. Спасибо за такую активную работу!”
-            </p>
-            <h4>Шахбанов Руслан</h4>
-          </div>
+          {approvedFeedback.map((item, idx) => {
+            if (item.is_approved) {
+              return (
+                <div className={styles.reviewCard} key={idx}>
+                  <h6>{`${item.created_at}`.slice(0, 19)}</h6>
+                  <p>“{item.text}”</p>
+                  <h4>{`${item.last_name} ${item.first_name}`}</h4>
+                </div>
+              );
+            }
+          })}
         </div>
       </section>
 
