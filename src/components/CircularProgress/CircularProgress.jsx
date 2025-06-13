@@ -1,7 +1,12 @@
-import React from 'react'
+import * as React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import styles from './CircularProgress.module.scss'
+import Box from '@mui/material/Box';
 
-export default function CircularProgress() {
+export default function CircularIndeterminate() {
   return (
-    <div>CircularProgress</div>
-  )
+    <div className={styles.progress}>
+      <CircularProgress />
+    </div>
+  );
 }

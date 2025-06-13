@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Form.module.scss";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import supabaseConnect from "@/api/supabaseClientConnect";
@@ -10,9 +10,11 @@ export default function Form() {
   const [mail, setMail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   console.log(name, mail)
 
   async function sendConnect() {
+    setLoading(true);
     const {error} = await supabaseConnect
     .from('connect')
     .insert([
@@ -30,7 +32,7 @@ export default function Form() {
       setMail('');
       setPhone('');
       setMessage('');
-      console.log('данные отправлены')
+      setLoading(false);
     }
   }
 
