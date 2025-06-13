@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
-import supabase from "@/api/supabaseClient";
+import supabase from "@/api/supabaseClientFeedback";
 
 export default function EventsContainer() {
   const [approvedFeedback, setApprovedFeedback] = useState([]);
@@ -37,7 +37,8 @@ export default function EventsContainer() {
             if (item.is_approved) {
               return (
                 <div className={styles.reviewCard} key={idx}>
-                  <h3>{`${item.created_at}`.slice(0, 19)}</h3><br />
+                  <h3>{`${item.created_at}`.slice(0, 19)}</h3>
+                  <br />
                   <p>“{item.text}”</p>
                   <h4>{`${item.last_name} ${item.first_name}`}</h4>
                 </div>

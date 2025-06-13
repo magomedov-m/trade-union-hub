@@ -4,7 +4,7 @@ import { pageVariables, pageTransitions } from "../_pageAnimations";
 import styles from "./AboutUsPage.module.scss";
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
-import supabase from "@/api/supabaseClient";
+import supabase from "@/api/supabaseClientFeedback";
 
 export default function About() {
   const [name, setName] = useState("");
@@ -12,18 +12,18 @@ export default function About() {
   const [message, setMessage] = useState("");
 
   async function addMessage() {
-    const { error } = await supabase
-      .from("feedback_message")
-      .insert([{ 
+    const { error } = await supabase.from("feedback_message").insert([
+      {
         first_name: name,
         last_name: lastName,
-        text: message
-       }]);
+        text: message,
+      },
+    ]);
 
-      if (error) console.log(error);
-      setName("")
-      setLastName("")
-      setMessage("")
+    if (error) console.log(error);
+    setName("");
+    setLastName("");
+    setMessage("");
   }
   return (
     <motion.div

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./FeedbackView.module.scss";
-import supabase from "@/api/supabaseClient";
+import supabase from "@/api/supabaseClientFeedback";
 import { Button } from "@mui/material";
 import Skeletone from "../Skeletone/Skeletone";
 
@@ -33,7 +33,6 @@ export default function FeedbackView() {
       .from("feedback_message")
       .update({ is_approved: !isApproved })
       .eq("id", id);
-      
   }
   return (
     <div className={styles.content}>
@@ -45,7 +44,10 @@ export default function FeedbackView() {
                 <h6>{`${item.created_at}`.slice(0, 19)}</h6>
                 <p>“{item.text}”</p>
                 <h4>{`${item.last_name} ${item.first_name}`}</h4>
-                <Button onClick={() => update(item.id, item.is_approved)} variant="outlined">
+                <Button
+                  onClick={() => update(item.id, item.is_approved)}
+                  variant="outlined"
+                >
                   {item.is_approved ? "Скрыть" : "Одобрить"}
                 </Button>
               </div>
