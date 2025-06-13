@@ -4,6 +4,7 @@ import styles from "./Admin.module.scss";
 import FeedbackView from "@/components/FeedbackVeiw/FeedbackView";
 import AddEvents from "@/components/AddEvents/AddEvents";
 import DocumentsView from "@/components/DocumentsView/DocumentsView";
+import ConnectUs from "@/components/ConnectUs/ConnectUs";
 
 const AdminPage = () => {
   const [activeTab, setActiveTab] = useState("reviews");
@@ -16,6 +17,8 @@ const AdminPage = () => {
         return <AddEvents />
       case "documents":
         return <DocumentsView />
+      case "connect":
+        return <ConnectUs />
       default:
         return null;
     }
@@ -23,7 +26,7 @@ const AdminPage = () => {
 
   return (
     <div className={styles.adminPage}>
-      <div className={styles.header}>Admin Panel</div>
+      <div className={styles.header}>Панель админа</div>
       <div className={styles.buttonContainer}>
         <button
           className={
@@ -47,6 +50,14 @@ const AdminPage = () => {
           onClick={() => setActiveTab("documents")}
         >
           Просмотр документов
+        </button>
+        <button
+          className={
+            activeTab === "connect" ? styles.activeButton : styles.button
+          }
+          onClick={() => setActiveTab("connect")}
+        >
+          Хочет связаться с нами
         </button>
       </div>
       <div className={styles.contentContainer}>{renderContent()}</div>

@@ -10,7 +10,6 @@ export default function About() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
-  console.log("name:", name, "lastName;", lastName, "message:", message);
 
   async function addMessage() {
     const { error } = await supabase
@@ -22,12 +21,9 @@ export default function About() {
        }]);
 
       if (error) console.log(error);
-      else {
-        setName("")
-        setLastName("")
-        setMessage("")
-        console.log('Сообщение отправлено')
-      }
+      setName("")
+      setLastName("")
+      setMessage("")
   }
   return (
     <motion.div
@@ -85,11 +81,11 @@ export default function About() {
             <h3>Полезные документы</h3>
             <p>Получите доступ к важным материалам и ресурсам.</p>
           </div>
-          {/* <div className={styles.featureCard}>
+          <div className={styles.featureCard}>
             <img src="/images/support.svg" alt="Поддержка" />
             <h3>Поддержка</h3>
             <p>Мы всегда готовы ответить на ваши вопросы и помочь.</p>
-          </div> */}
+          </div>
         </div>
       </section>
 
@@ -124,18 +120,21 @@ export default function About() {
             label="Ваше имя"
             variant="outlined"
             onChange={(e) => setName(e.target.value)}
+            value={name}
           />
           <TextField
             id="outlined-basic"
             label="Ваша фамилия"
             variant="outlined"
             onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
           />
           <TextField
             id="outlined-basic"
             label="Нам интересно Ваше мнение"
             variant="outlined"
             onChange={(e) => setMessage(e.target.value)}
+            value={message}
           />
           <Button onClick={() => addMessage()}>Отправить</Button>
         </form>

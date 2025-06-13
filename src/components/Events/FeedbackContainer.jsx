@@ -37,7 +37,7 @@ export default function EventsContainer() {
             if (item.is_approved) {
               return (
                 <div className={styles.reviewCard} key={idx}>
-                  <h6>{`${item.created_at}`.slice(0, 19)}</h6>
+                  <h3>{`${item.created_at}`.slice(0, 19)}</h3><br />
                   <p>“{item.text}”</p>
                   <h4>{`${item.last_name} ${item.first_name}`}</h4>
                 </div>
