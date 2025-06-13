@@ -13,7 +13,7 @@ const Services = () => {
       transition={pageTransitions}
       className={styles.container}
     >
-      <h1 className={styles.title}>Наши Услуги</h1>
+      <h1 className={styles.title}>Наши функции</h1>
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>

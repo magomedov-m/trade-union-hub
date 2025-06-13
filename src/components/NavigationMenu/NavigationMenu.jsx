@@ -32,7 +32,7 @@ export const NavigationMenu = () => {
         <AnimatePresence exitBeforeEnter mode="wait">
           <Link className={styles.navItem} href='/'>Главная</Link>
           <Link className={styles.navItem} href='/about'>О нас</Link>
-          <Link className={styles.navItem} href='/listing'>Услуги</Link>
+          <Link className={styles.navItem} href='/listing'>Функции</Link>
         </AnimatePresence>
         <MenuPopupState />
       </div>
