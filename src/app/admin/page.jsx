@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./Admin.module.scss";
 import FeedbackView from "@/components/FeedbackVeiw/FeedbackView";
 import AddEvents from "@/components/AddEvents/AddEvents";
-import DocumentsView from "@/components/DocumentsView/DocumentsView";
+import DocumentsView from "@/components/Registration/Registration";
 import ConnectUs from "@/components/ConnectUs/ConnectUs";
 
 const AdminPage = () => {
@@ -15,7 +15,7 @@ const AdminPage = () => {
         return <FeedbackView />
       case "events":
         return <AddEvents />
-      case "documents":
+      case "registry":
         return <DocumentsView />
       case "connect":
         return <ConnectUs />
@@ -45,11 +45,11 @@ const AdminPage = () => {
         </button>
         <button
           className={
-            activeTab === "documents" ? styles.activeButton : styles.button
+            activeTab === "registry" ? styles.activeButton : styles.button
           }
-          onClick={() => setActiveTab("documents")}
+          onClick={() => setActiveTab("registry")}
         >
-          Просмотр документов
+          Регистрация сотрудника
         </button>
         <button
           className={
@@ -57,7 +57,7 @@ const AdminPage = () => {
           }
           onClick={() => setActiveTab("connect")}
         >
-          Хочет связаться с нами
+          Хотят связаться
         </button>
       </div>
       <div className={styles.contentContainer}>{renderContent()}</div>

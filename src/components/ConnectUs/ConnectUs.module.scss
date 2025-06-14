@@ -1,6 +1,8 @@
 @import '../../app/variables.scss';
 
-.content {
+.contentBlock {
+    width: 1050px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
