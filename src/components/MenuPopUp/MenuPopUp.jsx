@@ -16,10 +16,12 @@ export default function MenuPopupState() {
             {role}
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <Link href='/admin'>
+            <Link href="/admin">
               <MenuItem onClick={popupState.close}>Админ</MenuItem>
             </Link>
-            <MenuItem onClick={popupState.close}>Аккаунт</MenuItem>
+            <Link href='/create-account'>
+              <MenuItem onClick={popupState.close}>Аккаунт</MenuItem>
+            </Link>
           </Menu>
         </React.Fragment>
       )}

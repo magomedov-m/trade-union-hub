@@ -1,0 +1,11 @@
+.content {
+  font-size: 24px;
+  color: #333;
+}
+
+.contentBlock {
+  width: 1050px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}/*# sourceMappingURL=ConnectUs.module.css.map */

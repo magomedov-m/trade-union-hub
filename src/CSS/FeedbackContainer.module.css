@@ -20,7 +20,8 @@
 }
 .reviews .reviewsSlider {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  height: 290px;
   overflow-x: auto;
 }
 .reviews .reviewsSlider .reviewCard {
