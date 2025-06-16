@@ -22,6 +22,9 @@ export default function MenuPopupState() {
             <Link href='/create-account'>
               <MenuItem onClick={popupState.close}>Аккаунт</MenuItem>
             </Link>
+            <Link href='/chat'>
+              <MenuItem onClick={popupState.close}>Чат</MenuItem>
+            </Link>
           </Menu>
         </React.Fragment>
       )}
