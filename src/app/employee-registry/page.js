@@ -139,7 +139,18 @@ const employees = [
 ];
 
 const EmployeeRegistry = () => {
-  
+  const [name, setName] = useState("");
+  let filteredEmployee = employees.filter((item) => {
+    return (
+      item.fullName.split(" ")[0].toLowerCase().includes(name.toLowerCase()) ||
+      item.fullName.split(" ")[1].toLowerCase().includes(name.toLowerCase()) ||
+      item.fullName.split(" ")[2].toLowerCase().includes(name.toLowerCase())
+    );
+  });
+
+  console.log(filteredEmployee);
+  console.log(name);
+
   return (
     <motion.div
       exit={pageVariables.out}
@@ -150,20 +161,26 @@ const EmployeeRegistry = () => {
     >
       <h1>Реестр сотрудников</h1>
       <div className={styles.searchSection}>
-        <input type="text" placeholder="Поиск по имени, должности, отделу..." />
-        
+        <input
+          type="text"
+          placeholder="Поиск по имени, должности, отделу..."
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className={styles.grid}>
-        {employees.map((emp) => (
-          <EmployeeCard key={emp.id} employee={emp} />
-        ))}
+        {filteredEmployee.length
+          ? filteredEmployee.map((emp) => (
+              <EmployeeCard key={emp.id} employee={emp} />
+            ))
+          : employees.map((emp) => (
+              <EmployeeCard key={emp.id} employee={emp} />
+            ))}
       </div>
     </motion.div>
   );
 };
 
 export default EmployeeRegistry;
-
 
 const EmployeeCard = ({ employee }) => {
   const [expanded, setExpanded] = useState(false);
@@ -173,16 +190,13 @@ const EmployeeCard = ({ employee }) => {
       <div className={styles.header}>
         <div className={styles.info}>
           <h3>{employee.fullName}</h3>
-          <p>
-            - {employee.position}
-          </p>
+          <p>- {employee.position}</p>
           <span className={styles.status}>{employee.faculty}</span>
         </div>
         <button
           className={styles.expandButton}
           onClick={() => setExpanded(!expanded)}
-        >
-        </button>
+        ></button>
       </div>
 
       <div className={styles.details}>
@@ -191,10 +205,10 @@ const EmployeeCard = ({ employee }) => {
           <a href={`tel:${employee.phone}`}></a>
           <a href={employee.linkedin} target="_blank" rel="noreferrer"></a>
         </div>
-        <Button className={styles.messageBtn} variant="outlined">Подробно</Button>
+        <Button className={styles.messageBtn} variant="outlined">
+          Подробно
+        </Button>
       </div>
     </div>
   );
 };
-
-
