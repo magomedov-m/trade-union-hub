@@ -1,3 +1,75 @@
 @import '../../app/variables.scss';
 
 .content {}
+/* AccountForm.module.scss */
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff, #e6f7ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  color: #00509e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00509e;
+  margin-bottom: 5px;
+}
+
+.input,
+.textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #0074d9;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #00509e;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 150px;
+}
+
+.button {
+  align-self: center;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: #0074d9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00509e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
