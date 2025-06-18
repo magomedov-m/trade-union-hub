@@ -1,5 +1,60 @@
-.createAccount {
-    width: 1140px;
-    border: 1px red solid;
-    margin: 0 auto;
+/* KeyInputForm.module.scss */
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: #0074d9;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.2rem;
+  color: #00509e;
+  margin-bottom: 10px;
+}
+
+.input {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #0074d9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #00509e;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: #0074d9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00509e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
