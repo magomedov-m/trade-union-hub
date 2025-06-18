@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import React from "react";
 import styles from "./Registration.module.scss";
 import { useState } from "react";
+import { TextField } from "@mui/material";
 
 export default function DocumentsView() {
   const [formData, setFormData] = useState({
@@ -28,36 +29,9 @@ export default function DocumentsView() {
       <h1 className={styles.title}>Заполните данные аккаунта</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.field}>
-          <label htmlFor="firstName" className={styles.label}>
-            Имя:
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="lastName" className={styles.label}>
-            Фамилия:
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="key" className={styles.label}>
-            Ключ:
-          </label>
-          <input
+          <TextField
+            variant="outlined"
+            label="Имя"
             type="text"
             id="key"
             name="key"
@@ -67,27 +41,49 @@ export default function DocumentsView() {
           />
         </div>
         <div className={styles.field}>
-          <label htmlFor="position" className={styles.label}>
-            Должность:
-          </label>
-          <input
+          <TextField
+            variant="outlined"
+            label="Фамилия"
             type="text"
-            id="position"
-            name="position"
-            value={formData.position}
+            id="key"
+            name="key"
+            value={formData.key}
             onChange={handleChange}
             className={styles.input}
           />
         </div>
         <div className={styles.field}>
-          <label htmlFor="workplace" className={styles.label}>
-            Место работы:
-          </label>
-          <input
+          <TextField
+            variant="outlined"
+            label="Ключ"
             type="text"
-            id="workplace"
-            name="workplace"
-            value={formData.workplace}
+            id="key"
+            name="key"
+            value={formData.key}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </div>
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Должность"
+            type="text"
+            id="key"
+            name="key"
+            value={formData.key}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </div>
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Место работы"
+            type="text"
+            id="key"
+            name="key"
+            value={formData.key}
             onChange={handleChange}
             className={styles.input}
           />
