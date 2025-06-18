@@ -163,7 +163,7 @@ const EmployeeRegistry = () => {
       <div className={styles.searchSection}>
         <input
           type="text"
-          placeholder="Поиск по имени, должности, отделу..."
+          placeholder="Поиск по фИО..."
           onChange={(e) => setName(e.target.value)}
         />
       </div>
