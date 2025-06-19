@@ -5,6 +5,7 @@ import useStore from "@/zustand/store";
 import supabaseAccount from "@/api/supabaseClientCreateAccount";
 import ChatIcon from "@mui/icons-material/Chat";
 import Link from "next/link";
+import SkeletonAccount from "@/components/Skeletone/SkeletonAccount";
 
 export default function page() {
   const key = useStore((state) => state.key);
@@ -33,7 +34,7 @@ export default function page() {
 
   console.log(data);
   return (
-    <>
+    <div className={styles.container}>
       {data.length > 0 ? (
         <div className={styles.container}>
           <h1 className={styles.title}>Ваш аккаунт</h1>
@@ -72,8 +73,8 @@ export default function page() {
           </Link>
         </div>
       ) : (
-        "Данные грузятся"
+        <div className={styles.skeleton}><SkeletonAccount  /></div>
       )}
-    </>
+    </div>
   );
 }
