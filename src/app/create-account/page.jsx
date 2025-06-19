@@ -1,34 +1,35 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./CreateAccount.module.scss";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
+import useStore from "@/zustand/store";
+
 
 const KeyInputForm = () => {
   const [key, setKey] = useState("");
   const router = useRouter();
+  const updateKey = useStore((state) => state.updateKey);
 
-  const handleSubmit = (event) => {
-    console.log("Submitted Key:", key);
-    router.push('/account')
+  const handleSubmit = () => {
+    updateKey(key)
+    router.push("/account");
   };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Вход в систему</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="key" className={styles.label}>
-          Введите вашключ:
-        </label>
-        <input
+      <form className={styles.form}>
+        <TextField
+          label="Ключ"
           type="text"
-          id="key"
           className={styles.input}
           value={key}
           onChange={(e) => setKey(e.target.value)}
-          placeholder="Ваш ключ..."
+          placeholder="** * *** **** ** ****"
         />
-        <Button variant="outlined" onClick={() => handleSubmit()}>
+        <br/>
+        <Button className={styles.button} variant="outlined" onClick={() => handleSubmit()}>
           Войти
         </Button>
       </form>

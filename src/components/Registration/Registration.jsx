@@ -2,32 +2,42 @@
 import React from "react";
 import styles from "./Registration.module.scss";
 import { useState } from "react";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
+import supabaseAccount from "@/api/supabaseClientCreateAccount";
 
 export default function DocumentsView() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    key: "",
-    position: "",
-    workplace: "",
-    description: "",
-    creationDate: "",
-  });
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [key, setKey] = useState("");
+  const [position, setPosition] = useState("");
+  const [workplace, setWorkPlace] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  async function createAccount() {
+    const { error } = await supabaseAccount.from("register").insert([
+      {
+        first_name: firstName,
+        last_name: lastName,
+        key: key,
+        description: description,
+        job_title: position,
+        department: workplace,
+      },
+    ]);
 
-  const handleSubmit = (e) => {
-    console.log("Submitted Data:", formData);
-  };
+    if (error) console.log(error);
+    setFirstName("");
+    setLastName("");
+    setKey("");
+    setPosition("");
+    setWorkPlace("");
+    setDescription("");
+  }
 
   return (
     <div className={styles.content}>
       <h1 className={styles.title}>Заполните данные аккаунта</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form}>
         <div className={styles.field}>
           <TextField
             variant="outlined"
@@ -35,8 +45,8 @@ export default function DocumentsView() {
             type="text"
             id="key"
             name="key"
-            value={formData.key}
-            onChange={handleChange}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -47,8 +57,8 @@ export default function DocumentsView() {
             type="text"
             id="key"
             name="key"
-            value={formData.key}
-            onChange={handleChange}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -59,8 +69,8 @@ export default function DocumentsView() {
             type="text"
             id="key"
             name="key"
-            value={formData.key}
-            onChange={handleChange}
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -71,8 +81,8 @@ export default function DocumentsView() {
             type="text"
             id="key"
             name="key"
-            value={formData.key}
-            onChange={handleChange}
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -83,8 +93,8 @@ export default function DocumentsView() {
             type="text"
             id="key"
             name="key"
-            value={formData.key}
-            onChange={handleChange}
+            value={workplace}
+            onChange={(e) => setWorkPlace(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -95,8 +105,8 @@ export default function DocumentsView() {
           <textarea
             id="description"
             name="description"
-            value={formData.description}
-            onChange={handleChange}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className={styles.textarea}
           />
         </div>
@@ -112,9 +122,9 @@ export default function DocumentsView() {
             disabled
           />
         </div>
-        <button type="submit" className={styles.button}>
-          Сохранить
-        </button>
+        <Button onClick={() => createAccount()} variant="outlined" className={styles.button}>
+          Зарегистрировать
+        </Button>
       </form>
     </div>
   );

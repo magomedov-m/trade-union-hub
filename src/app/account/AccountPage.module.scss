@@ -32,3 +32,16 @@
   font-weight: bold;
   color: #0074d9;
 }
+
+.h3 {
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.chatIcon {
+  margin-top: 10px;
+}

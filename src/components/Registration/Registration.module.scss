@@ -1,6 +1,7 @@
-@import '../../app/variables.scss';
+@import "../../app/variables.scss";
 
-.content {}
+.content {
+}
 /* AccountForm.module.scss */
 .container {
   width: 1140px;
@@ -66,10 +67,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
 }
 
 .button:hover {
-  background-color: #00509e;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

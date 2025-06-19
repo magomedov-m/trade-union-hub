@@ -1,4 +1,3 @@
-/* KeyInputForm.module.scss */
 .container {
   width: 1140px;
   margin: 0 auto;
@@ -32,29 +31,4 @@
   max-width: 500px;
   padding: 10px 15px;
   font-size: 1rem;
-  border: 2px solid #0074d9;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.input:focus {
-  border-color: #00509e;
-}
-
-.button {
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  color: #ffffff;
-  background-color: #0074d9;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button:hover {
-  background-color: #00509e;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
