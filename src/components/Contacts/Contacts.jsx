@@ -10,10 +10,6 @@ export default function Contacts() {
             <Form />
             <Map />
         </div>
-        <div className={styles.contactInfo}>
-            <div className={styles.map}></div>
-            <div className={styles.info}></div>
-        </div>
     </div>
   )
 }

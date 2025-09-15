@@ -1,64 +1,134 @@
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .footer {
-  background-color: #1e293b; // Тёмный фон
-  color: #ffffff; // Белый текст
-  padding: 20px 40px; // Добавляем отступы по бокам
-  width: 1140px;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 20px 40px;
+  width: 100%;
 }
 
 .container {
-  max-width: 1140px; // Ограничение максимальной ширины
-  margin: 0 auto; // Центровка контейнера
+  max-width: 1140px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between; // Равномерное распределение
-  align-items: flex-start; // Выравнивание по верху
-  flex-wrap: wrap; // Для адаптивности
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .info {
-  flex: 1; // Занимает всё доступное пространство, если нужно
-  text-align: left; // Текст выровнен влево
-  font-size: 1.1rem; // Увеличиваем размер шрифта
-  line-height: 1.6; // Интерлиньяж
-}
+  flex: 1;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
 
-.info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
 }
 
 .links {
-    margin-top: 20px;
-  flex: 0 0 200px; // Фиксированная ширина блока ссылок
+  margin-top: 20px;
+  flex: 0 0 200px;
   display: flex;
-  flex-direction: column; // Ссылки в колонку
-  gap: 20px; // Расстояние между ссылками
-}
+  flex-direction: column;
+  gap: 20px;
 
-.link {
-  color: #f3f4f6; // Светлый цвет текста
-  text-decoration: none;
-  font-size: 1.1rem; // Увеличиваем размер шрифта
-  transition: color 0.3s;
-  font-size: 20px;
+  .link {
+    color: #f3f4f6;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
 
-  &:hover {
-    color: #38bdf8; // Синий цвет при наведении
+    &:hover {
+      color: #38bdf8;
+    }
   }
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: $bp-xs) {
   .container {
-    flex-direction: column; // Вертикальное расположение на мобильных
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 10px 20px;
   }
 
   .info {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+
+  .links {
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .info h3 {
+    font-size: 1.4rem;
   }
 
   .links {
     flex: none;
-    align-items: center; // Центровка ссылок
+  }
+}
+
+@media (max-width: $bp-md) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 25px;
+  }
+
+  .info {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+
+  .links {
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+  }
+
+  .info {
+    font-size: 1.05rem;
+  }
+
+  .links {
+    gap: 18px;
+  }
+}
+
+@media (max-width: $bp-xl) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: flex-start;
+  }
+
+  .info {
+    font-size: 1.1rem;
+  }
+
+  .links {
+    gap: 20px;
   }
 }

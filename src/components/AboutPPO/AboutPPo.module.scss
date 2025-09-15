@@ -1,23 +1,100 @@
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .aboutPPO {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1140px;
-    height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  height: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 20px;
+
+  @media (max-width: $bp-md) {
+    height: auto;
+    flex-direction: column;
+  }
 }
+
 .aboutTitleBlock {
-    width: 500px;
+  width: 500px;
+
+  @media (max-width: $bp-lg) {
+    width: 380px;
+  }
+  @media (max-width: $bp-md) {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 .title {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-.description {
+  font-size: 40px;
+  margin-bottom: 10px;
+
+  @media (max-width: $bp-lg) {
+    font-size: 36px;
+  }
+  @media (max-width: $bp-md) {
+    font-size: 30px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 26px;
+  }
+  @media (max-width: $bp-xs) {
     font-size: 22px;
+  }
+}
+
+.description {
+  font-size: 22px;
+  text-align: justify;
+  text-justify: inter-word;
+
+  @media (max-width: $bp-lg) {
+    font-size: 20px;
+  }
+  @media (max-width: $bp-md) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 16px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 14px;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: $bp-md) {
+    width: 90%;
+  }
 }
 
 .image {
-    border-radius: 40px;
-    width: 400px;
+  border-radius: 40px;
+  width: 400px;
+  height: auto;
+
+  @media (max-width: $bp-lg) {
+    width: 350px;
+  }
+  @media (max-width: $bp-md) {
+    width: 250px;
+  }
+  @media (max-width: $bp-sm) {
+    width: 200px;
+  }
+  @media (max-width: $bp-xs) {
+    width: 180px;
+  }
 }

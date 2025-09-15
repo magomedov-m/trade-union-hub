@@ -1,45 +1,148 @@
 @import '../../app/variables.scss';
 
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+
 .feedbackMessages {
-  width: 1140px;
-  height: auto;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
   padding: 25px;
-}
 
-.reviews {
-  margin-bottom: 60px;
-  text-align: center;
+  .reviews {
+    margin-bottom: 60px;
+    text-align: center;
 
-  h2 {
-    font-size: 28px;
-    color: $primary-color;
-    margin-bottom: 30px;
+    h2 {
+      font-size: 28px;
+      color: $primary-color;
+      margin-bottom: 30px;
+    }
+
+    .reviewsSlider {
+      display: flex;
+      gap: 40px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px; // чтобы контент не прилипал к краю
+
+      .reviewCard {
+        flex: 0 0 300px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+
+        h3 {
+          font-size: 16px;
+          color: $text-secondary;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 22px;
+          color: $text-primary;
+          margin-bottom: 10px;
+        }
+
+        h4 {
+          font-size: 20px;
+          color: $primary-color;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
+  .content {
+    text-align: center;
+  }
+}
+
+// XS: до 360px
+@media (max-width: $bp-xs) {
   .reviewsSlider {
-    display: flex;
-    gap: 40px;
-    height: 290px;
-    overflow-x: auto;
+    gap: 10px;
 
     .reviewCard {
-      flex: 0 0 300px;
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 0 0 220px;
+      padding: 15px;
 
       p {
-        font-size: 22px;
-        color: $text-primary;
-        margin-bottom: 10px;
+        font-size: 16px;
       }
 
       h4 {
-        font-size: 20px;
-        color: $primary-color;
-        font-weight: bold;
+        font-size: 16px;
       }
+    }
+  }
+}
+
+// SM: до 480px
+@media (max-width: $bp-sm) {
+  .reviewsSlider {
+    gap: 15px;
+
+    .reviewCard {
+      flex: 0 0 240px;
+
+      p {
+        font-size: 18px;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// MD: до 768px
+@media (max-width: $bp-md) {
+  .reviewsSlider {
+    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    .reviewCard {
+      flex: 0 0 260px;
+      padding: 18px;
+
+      p {
+        font-size: 20px;
+      }
+
+      h4 {
+        font-size: 19px;
+      }
+    }
+  }
+}
+
+// LG: до 1024px
+@media (max-width: $bp-lg) {
+  .reviewsSlider {
+    gap: 25px;
+
+    .reviewCard {
+      flex: 0 0 280px;
+    }
+  }
+}
+
+// XL: до 1280px
+@media (max-width: $bp-xl) {
+  .reviewsSlider {
+    gap: 30px;
+
+    .reviewCard {
+      flex: 0 0 300px;
     }
   }
 }

@@ -1,43 +1,109 @@
+// breakpoints
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .formContainer {
-    padding: 20px 10px; 
-    width: 400px;
-    min-height: 450px;
-    border-radius: 10px;
-    background-color: rgba(241, 239, 239, 0.863);
+  padding: 20px 10px;
+  width: 400px;
+  min-height: 450px;
+  border-radius: 10px;
+  background-color: rgba(241, 239, 239, 0.863);
+
+  @media (max-width: $bp-lg) {
+    width: 350px;
+  }
+  @media (max-width: $bp-md) {
+    width: 90%;
+    min-height: auto;
+  }
+  @media (max-width: $bp-sm) {
+    width: 95%;
+    margin-bottom: 20px;
+  }
+  @media (max-width: $bp-xs) {
+    width: 96%;
+  }
 }
 
 .titleInput {
-    font-size: 23px;
+  font-size: 23px;
+
+  @media (max-width: $bp-md) {
+    font-size: 20px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 16px;
+  }
 }
 
 .textFieldBlock {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
 }
+
 .textarea {
-    min-width: 200px;
-    max-width: 100%;
-    min-height: 60px;
-    max-height: 140px;
-    margin-bottom: 20px;
-    font-size: 20px;
+  min-width: 200px;
+  max-width: 100%;
+  min-height: 60px;
+  max-height: 140px;
+  margin-bottom: 20px;
+  font-size: 20px;
+
+  @media (max-width: $bp-md) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 16px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 14px;
+  }
 }
+
 .text {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .h1 {
-    display: flex;
-    justify-content: space-around;
-    color: rgb(54, 185, 42);
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  color: rgb(54, 185, 42);
+  font-weight: bold;
+  font-size: 28px;
+
+  @media (max-width: $bp-md) {
+    font-size: 24px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 22px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 20px;
+  }
 }
 
 .h2 {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 22px;
+
+  @media (max-width: $bp-md) {
+    font-size: 20px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 16px;
+  }
 }

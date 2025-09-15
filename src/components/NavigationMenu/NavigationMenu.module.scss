@@ -1,52 +1,68 @@
+// 5 breakpoints
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .navigationMenu {
-  margin: 0 auto;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto;
   position: sticky;
   top: 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1140px;
-  padding: 0px 15px;
+  width: 100%;
+  max-width: 1140px;
+  padding: 10px 12px;
   border-radius: 10px;
   background-color: #e4e6e9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 60;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
-  margin-right: 16px;
-  border-radius: 10em;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #343a40;
+  margin: 0;
 }
 
 .nav {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 12px;
+}
+
+.navLinks {
+  display: none; // скрыты на мобилке
+  gap: 12px;
   align-items: center;
 }
 
 .navItem {
-  font-size: 22px;
+  font-size: 16px;
   color: #495057;
   cursor: pointer;
-  transition: 0.17s;
+  transition: 0.2s;
+  text-decoration: none;
 }
 
 .navItem:hover {
   color: #007bff;
-  margin-bottom: 8px;
   text-decoration: underline;
 }
 
@@ -56,11 +72,137 @@
   color: #fff;
   background-color: #007bff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .contactButton:hover {
   background-color: #0056b3;
+}
+
+/* ===== Hamburger ===== */
+.hamburgerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 80;
+}
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.open .hamburgerLine:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.open .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+.open .hamburgerLine:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -9px);
+}
+
+/* ===== Mobile menu ===== */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 70;
+}
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(320px, 85vw);
+  background: #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+.mobileNavItem {
+  font-size: 20px;
+  color: #212529;
+  text-decoration: none;
+  padding: 10px 6px;
+  border-radius: 6px;
+}
+.mobileNavItem:hover {
+  background: #f2f4f6;
+  color: #007bff;
+}
+.mobileFooter {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* ===== Breakpoints ===== */
+@media (min-width: $bp-sm) {
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $bp-md) {
+  .logo {
+    width: 84px;
+    height: 84px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .navLinks {
+    display: flex; // показываем ссылки
+  }
+  .hamburgerButton {
+    display: none; // убираем гамбургер
+  }
+  .navItem {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .navItem {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .navItem {
+    font-size: 22px;
+  }
 }
