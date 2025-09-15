@@ -1,17 +1,57 @@
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .container {
-  width: 1140px;
+  width: 90%;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 20px;
   background: linear-gradient(135deg, #e0f7ff, #ffffff);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+  @media (max-width: $bp-xl) {
+    width: 95%;
+  }
+  @media (max-width: $bp-lg) {
+    width: 90%;
+    padding: 18px;
+  }
+  @media (max-width: $bp-md) {
+    width: 85%;
+    padding: 15px;
+  }
+  @media (max-width: $bp-sm) {
+    width: 95%;
+    padding: 12px;
+  }
+  @media (max-width: $bp-xs) {
+    width: 100%;
+    padding: 10px;
+  }
 }
 
 .title {
   font-size: 2rem;
   color: #0074d9;
   margin-bottom: 20px;
+
+  @media (max-width: $bp-lg) {
+    font-size: 1.8rem;
+  }
+  @media (max-width: $bp-md) {
+    font-size: 1.6rem;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 1.2rem;
+  }
 }
 
 .form {
@@ -24,6 +64,13 @@
   font-size: 1.2rem;
   color: #00509e;
   margin-bottom: 10px;
+
+  @media (max-width: $bp-md) {
+    font-size: 1rem;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 0.9rem;
+  }
 }
 
 .input {
@@ -31,4 +78,30 @@
   max-width: 500px;
   padding: 10px 15px;
   font-size: 1rem;
+
+  @media (max-width: $bp-md) {
+    max-width: 400px;
+    font-size: 0.9rem;
+  }
+  @media (max-width: $bp-sm) {
+    max-width: 300px;
+    font-size: 0.85rem;
+  }
+  @media (max-width: $bp-xs) {
+    max-width: 260px;
+    font-size: 0.8rem;
+  }
+}
+
+.button {
+  margin-top: 15px;
+
+  @media (max-width: $bp-md) {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
 }

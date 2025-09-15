@@ -60,6 +60,7 @@
     font-size: 16px;
     color: $text-primary;
     margin-bottom: 15px;
+    text-align: justify;
   }
 
   .missionImage {
@@ -84,6 +85,8 @@
   .featuresGrid {
     display: flex;
     justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
 
     .featureCard {
       background: linear-gradient(120deg, #f0f9ff, #ffffff);
@@ -134,9 +137,18 @@
     display: flex;
     justify-content: space-around;
     gap: 20px;
+    flex-wrap: wrap;
 
     .teamMember {
+      display: flex;
+      flex-direction: column;
       text-align: center;
+      background-color: #fbfbfd;
+      border-radius: 10px;
+      justify-content: space-around;
+      width: 300px;
+      height: 200px;
+      border: 1px rgb(166, 211, 218) solid;
 
       img {
         width: 100%;
@@ -158,9 +170,6 @@
     }
   }
 }
-
-/* Reviews Section */
-
 
 /* Contact Section */
 .contact {
@@ -212,5 +221,103 @@
       color: $text-primary;
       margin-bottom: 10px;
     }
+  }
+}
+
+/* ------------------ Адаптив ------------------ */
+
+/* XS (до 360px) */
+@media (max-width: 360px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .hero .title {
+    font-size: 24px;
+  }
+  .hero .subtitle {
+    font-size: 14px;
+  }
+
+  .featuresGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teamFlex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* SM (361px – 576px) */
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .hero .title {
+    font-size: 26px;
+  }
+  .hero .subtitle {
+    font-size: 15px;
+  }
+
+  .featuresGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teamFlex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* MD (577px – 768px) */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .hero .title {
+    font-size: 30px;
+  }
+
+  .featuresGrid {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .teamFlex {
+    gap: 15px;
+    justify-content: center;
+  }
+}
+
+/* LG (769px – 992px) */
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+  }
+
+  .featuresGrid {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .teamFlex {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* XL (993px – 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
   }
 }

@@ -1,5 +1,14 @@
+@import "../../app/variables.scss";
+
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .adminPage {
-  width: 1140px;
+  max-width: 1140px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -17,17 +26,23 @@
 .buttonContainer {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.button {
-  background-color: #e0e0e0;
+.button,
+.activeButton {
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   font-size: 22px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.button {
+  background-color: #e0e0e0;
 }
 
 .button:hover {
@@ -37,11 +52,6 @@
 .activeButton {
   background-color: #007bff;
   color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 22px;
-  cursor: pointer;
 }
 
 .contentContainer {
@@ -51,3 +61,66 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* 📱 XS (до 360px) */
+@media (max-width: $bp-xs) {
+  .buttonContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  .activeButton {
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+}
+
+/* 📱 SM (361px – 480px) */
+@media (max-width: $bp-sm) {
+  .buttonContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  .activeButton {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+/* 📲 MD (481px – 768px) */
+@media (max-width: $bp-md) {
+  .buttonContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .button,
+  .activeButton {
+    flex: 1 1 calc(50% - 20px);
+    max-width: 300px;
+    font-size: 18px;
+  }
+}
+
+/* 💻 LG (769px – 1024px) */
+@media (max-width: $bp-lg) {
+  .buttonContainer {
+    justify-content: space-between;
+  }
+
+  .button,
+  .activeButton {
+    font-size: 20px;
+  }
+}
+
+/* 🖥️ XL (1025px – 1280px) */
+@media (max-width: $bp-xl) {
+  .buttonContainer {
+    justify-content: space-around;
+  }
+}

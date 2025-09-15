@@ -66,7 +66,7 @@ export const NavigationMenu = () => {
             <motion.aside
               className={styles.mobileDrawer}
               initial={{ x: "100vw" }}
-              animate={{ x: '30vw' }}
+              animate={{ x: '10vw' }}
               exit={{ x: "100vw" }}
               transition={{ duration: 0.3 }}
             >
