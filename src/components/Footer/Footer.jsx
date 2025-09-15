@@ -13,15 +13,6 @@ const Footer = () => {
           <p>Email: profsoyuz@dgmu.ru</p>
           
         </div>
-        <div className={styles.links}>
-          <a href="/about" className={styles.link}>
-            О нас
-          </a>
-          <a href="/news" className={styles.link}>
-            Новости
-          </a>
-          <MenuPopupState />
-        </div>
       </div>
     </footer>
   );

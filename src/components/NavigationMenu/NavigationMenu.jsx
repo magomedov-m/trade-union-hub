@@ -1,53 +1,95 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./NavigationMenu.module.scss";
-import Button from "@mui/material/Button";
 import Image from "next/image";
 import Logo from "../../app/Logo.png";
 import Link from "next/link";
-import { AnimatePresence } from "framer-motion";
-
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import { motion, AnimatePresence } from "framer-motion";
 import MenuPopupState from "../MenuPopUp/MenuPopUp";
 
 export const NavigationMenu = () => {
-  
-  const [value, setValue] = useState(1);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  }
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key === "Escape") setMenuOpen(false);
+    }
+    if (menuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
-    <div className={styles.navigationMenu}>
+    <header className={styles.navigationMenu}>
       <div className={styles.logoContainer}>
-        <Image src={Logo} alt="ПрофМед" className={styles.logo} />
+        <Image src={Logo} alt="ПрофМед" className={styles.logo} width={100} height={100} />
         <h1 className={styles.title}>ПрофМед</h1>
       </div>
-      <div className={styles.nav}>
-        <AnimatePresence exitBeforeEnter mode="wait">
-          <Link className={styles.navItem} href='/'>Главная</Link>
-          <Link className={styles.navItem} href='/about'>О нас</Link>
-          <Link className={styles.navItem} href='/listing'>Функции</Link>
-        </AnimatePresence>
-        <MenuPopupState />
-      </div>
-    </div>
 
-    // <Box sx={{ width: '1140px', typography: 'body1' }}>
-    //   <TabContext value={value}>
-    //     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-    //       <TabList onChange={handleChange} aria-label="navigation tabs">
-    //         <Tab href="/" label='Item one' value={1} />
-    //         <Tab href="/about" label='Item two' value={2} />
-    //         <Tab href="/employee-registry" label='Item three' value={3} />
-    //       </TabList>
-    //     </Box>
-    //   </TabContext>
-    // </Box>
+      <nav className={styles.nav}>
+        {/* ссылки для планшетов/десктопов */}
+        <div className={styles.navLinks}>
+          <Link className={styles.navItem} href="/">Главная</Link>
+          <Link className={styles.navItem} href="/about">О нас</Link>
+          <Link className={styles.navItem} href="/listing">Функции</Link>
+          <MenuPopupState />
+        </div>
+
+        {/* гамбургер для мобильных */}
+        <button
+          aria-label="Меню"
+          className={`${styles.hamburgerButton} ${menuOpen ? styles.open : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+        </button>
+      </nav>
+
+      {/* мобильное меню */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            <motion.div
+              className={styles.mobileOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.aside
+              className={styles.mobileDrawer}
+              initial={{ x: "100vw" }}
+              animate={{ x: '10vw' }}
+              exit={{ x: "100vw" }}
+              transition={{ duration: 0.3 }}
+            >
+              <nav className={styles.mobileNav}>
+                <Link href="/" className={styles.mobileNavItem} onClick={() => setMenuOpen(false)}>
+                  Главная
+                </Link>
+                <Link href="/about" className={styles.mobileNavItem} onClick={() => setMenuOpen(false)}>
+                  О нас
+                </Link>
+                <Link href="/listing" className={styles.mobileNavItem} onClick={() => setMenuOpen(false)}>
+                  Функции
+                </Link>
+                <div className={styles.mobileFooter}>
+                  <MenuPopupState />
+                </div>
+              </nav>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
+
+export default NavigationMenu;

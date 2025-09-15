@@ -1,30 +1,99 @@
+// breakpoints
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .banner {
-    width: 1140px;
-    height: 700px;
-    background-color:hsla(10,0%,100%,1);
-    background-image:
+  width: 100%;
+  max-width: 1140px;
+  height: 700px;
+  margin: 0 auto;
+  background-color: hsla(10,0%,100%,1);
+  background-image:
     radial-gradient(at 24% 28%, hsla(214,69%,66%,0.63) 0px, transparent 50%),
     radial-gradient(at 37% 19%, hsla(197,73%,78%,1) 0px, transparent 50%),
     radial-gradient(at 67% 90%, hsla(217,85%,64%,1) 0px, transparent 50%);
+  display: flex;
+  align-items: center;
 }
 
 .title {
-    font-weight: bold;
-    font-size: 55px;
+  font-weight: bold;
+  font-size: 55px;
+
+  @media (max-width: $bp-xl) {
+    font-size: 48px;
+  }
+  @media (max-width: $bp-lg) {
+    font-size: 42px;
+  }
+  @media (max-width: $bp-md) {
+    font-size: 36px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 28px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 24px;
+  }
 }
+
 .description {
-    font-size: 24px;
-    margin-bottom: 25px;
+  font-size: 24px;
+  margin-bottom: 25px;
+
+  @media (max-width: $bp-lg) {
+    font-size: 20px;
+  }
+  @media (max-width: $bp-md) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 16px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 14px;
+  }
 }
+
 .btn {
-    font-size: 24px;
+  font-size: 24px;
+
+  @media (max-width: $bp-md) {
+    font-size: 20px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 18px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 16px;
+  }
 }
 
 .historyPPOMU {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 200px 50px;
-    width: 300px;
-    height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 200px 50px;
+  width: 300px;
+  height: 150px;
+
+  @media (max-width: $bp-lg) {
+    margin: 150px 30px;
+    width: 260px;
+  }
+  @media (max-width: $bp-md) {
+    margin: 100px 20px;
+    width: 220px;
+  }
+  @media (max-width: $bp-sm) {
+    margin: 80px 15px;
+    width: 200px;
+  }
+  @media (max-width: $bp-xs) {
+    margin: 60px 10px;
+    width: 180px;
+  }
 }

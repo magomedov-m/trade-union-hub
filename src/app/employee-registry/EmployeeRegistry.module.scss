@@ -1,10 +1,18 @@
+/* --- Breakpoints --- */
+$bp-xs: 360px;   // очень маленькие телефоны
+$bp-sm: 480px;   // обычные телефоны
+$bp-md: 768px;   // планшеты
+$bp-lg: 1024px;  // десктоп маленький
+$bp-xl: 1280px;  // десктоп большой
+
+/* --- Registry Page --- */
 .registryPage {
   padding: 2rem;
   background-color: #f9fafb;
   font-family: 'Segoe UI', sans-serif;
-  width: 1140px;
+  max-width: 1140px;
+  width: 95%;
   min-height: 100vh;
-  height: auto;
   margin: 0 auto;
 
   h1 {
@@ -14,6 +22,11 @@
   }
 }
 
+.fullName {
+  font-weight: 600;
+}
+
+/* --- Search Section --- */
 .searchSection {
   margin-bottom: 2rem;
 
@@ -33,13 +46,18 @@
   }
 }
 
+/* --- Grid --- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
+/* --- Card --- */
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 1rem;
@@ -52,6 +70,7 @@
   }
 }
 
+/* --- Header --- */
 .header {
   display: flex;
   align-items: center;
@@ -83,13 +102,14 @@
 .status {
   font-size: 14px;
   padding: 0.2rem 0.5rem;
-  border-radius: 999px;
+  border-radius: 10px;
   background-color: #d1fae5;
   color: #065f46;
   display: inline-block;
   margin-top: 0.25rem;
 }
 
+/* --- Details --- */
 .details {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -123,7 +143,6 @@
   border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.3s;
-
 }
 
 .expandButton {
@@ -141,15 +160,51 @@
   transform: rotate(180deg);
 }
 
-/* Цветовое кодирование отделов */
-.it {
-  color: #3b82f6;
+/* --- Color Coding Departments --- */
+.it { color: #3b82f6; }
+.hr { color: #10b981; }
+.marketing { color: #f59e0b; }
+
+/* --- Adaptive Styles --- */
+
+/* XS (до 360px) — 1 колонка */
+@media (max-width: $bp-xs) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.hr {
-  color: #10b981;
+/* SM (361px – 480px) — 1 колонка */
+@media (min-width: $bp-xs) and (max-width: $bp-sm) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.marketing {
-  color: #f59e0b;
+/* MD (481px – 768px) — 2 колонки */
+@media (min-width: $bp-sm) and (max-width: $bp-md) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* LG (769px – 1024px) — 3 колонки */
+@media (min-width: $bp-md) and (max-width: $bp-lg) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* XL (1025px – 1280px) — 4 колонки */
+@media (min-width: $bp-lg) and (max-width: $bp-xl) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* XXL (>1280px) — 5 колонок */
+@media (min-width: $bp-xl) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

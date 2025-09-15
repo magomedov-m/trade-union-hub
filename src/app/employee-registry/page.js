@@ -189,7 +189,7 @@ const EmployeeCard = ({ employee }) => {
     <div className={styles.card}>
       <div className={styles.header}>
         <div className={styles.info}>
-          <h3>{employee.fullName}</h3>
+          <h4 className={styles.fullName}>{employee.fullName}</h4>
           <p>- {employee.position}</p>
           <span className={styles.status}>{employee.faculty}</span>
         </div>

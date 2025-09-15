@@ -1,32 +1,83 @@
 @import "../../app/variables.scss";
 
+$bp-xs: 360px;
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
 .content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* центрируем на малых экранах */
+  gap: 20px;
 }
 
+/* Базовые карточки */
 .reviewCard {
-  border-radius: 1px red solid;
-  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
   padding: 20px;
+  height: 280px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  margin: 30px;
+  background: #f9f9f9;
+}
 
-  p {
-    font-size: 22px;
-    color: $text-primary;
-    margin-bottom: 10px;
+.text {
+  overflow-y: auto;
+}
+
+.name {
+  margin: 15px 0 10px;
+  color: #378edf;
+}
+
+/* 📱 Мобильные до 480px — один столбец */
+@media (max-width: $bp-sm) {
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
   }
 
-  h4 {
-    font-size: 20px;
-    color: $primary-color;
-    font-weight: bold;
-    margin-bottom: 15px;
+  .reviewCard {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
   }
-  h6 {
-    margin-bottom: 10px;
+}
+
+/* 📲 Планшет 481px – 768px — 2 колонки */
+@media (min-width: $bp-sm) and (max-width: $bp-md) {
+  .reviewCard {
+    width: calc(50% - 10px); /* 2 колонки с небольшим gap */
+    margin: 5px;
+  }
+}
+
+/* 💻 Десктоп 769px – 1024px — 2–3 колонки */
+@media (min-width: $bp-md) and (max-width: $bp-lg) {
+  .reviewCard {
+    width: calc(45% - 10px); /* 2 колонки с gap */
+    margin: 5px;
+  }
+}
+
+/* 🖥️ XL 1025px – 1280px — 3 колонки */
+@media (min-width: $bp-lg) and (max-width: $bp-xl) {
+  .reviewCard {
+    width: calc(30% - 13px); /* 3 колонки с gap */
+    margin: 5px;
+  }
+}
+
+/* Очень большой экран — 4 колонки */
+@media (min-width: $bp-xl) {
+  .reviewCard {
+    width: calc(23% - 15px); /* 4 колонки с gap */
+    margin: 5px;
   }
 }
