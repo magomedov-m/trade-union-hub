@@ -1,44 +1,37 @@
 /* reset.css */
 
-/* Сброс основных элементов */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Убираем стандартные стили для списков */
 ul, ol {
   list-style: none;
 }
 
-/* Убираем стандартные стили для таблиц */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Убираем стандартные стили для изображений */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Убираем стандартные стили для ссылок */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Убираем стандартные стили для форм */
 input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
 
-/* Убираем стандартные стили для кнопок */
 button {
   background: none;
   border: none;
@@ -48,12 +41,10 @@ button {
   cursor: pointer;
 }
 
-/* Убираем стандартные стили для заголовков */
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-/* Убираем стандартные стили для абзацев */
 p {
   line-height: 1.5;
 }
