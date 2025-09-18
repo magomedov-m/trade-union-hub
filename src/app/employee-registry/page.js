@@ -1,144 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./EmployeeRegistry.module.scss";
 import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
 import { Button } from "@mui/material";
-
-const employees = [
-  {
-    id: 1,
-    fullName: "Шахбанов Руслан Казбекович",
-    faculty: "Кафедра гистологии",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Заведующий",
-  },
-  {
-    id: 2,
-    fullName: "Мусаева Венера Рамазановна",
-    faculty: "Библиотека",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Директор",
-  },
-  {
-    id: 3,
-    fullName: "Мустафаев Иманали Мустафаевич",
-    faculty: "Управление по работе с обучающимися",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Начальник",
-  },
-  {
-    id: 4,
-    fullName: "Ибрагимов Абдулмажид Магомедович",
-    faculty: "Управление безопасности",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Помощник начальника управления",
-  },
-  {
-    id: 5,
-    fullName: "Гарунова Раисат Эдуардовна",
-    faculty: "Кафедра физиологии",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Старший преподаватель",
-  },
-  {
-    id: 6,
-    fullName: "Ахмедова Пасихат Гитиномагомедовна",
-    faculty: "Медицинский колледж",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Преподаватель сестринского дела",
-  },
-  {
-    id: 7,
-    fullName: "Дамаданова Аминат Гаджимагомедовна",
-    faculty: "Бухгалтерия",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Бухгалтер расчетного отдела",
-  },
-  {
-    id: 8,
-    fullName: "Закарияева Индира Магомедовна",
-    faculty: "Студентка",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Студентка",
-  },
-  {
-    id: 9,
-    fullName: "Абдулгалимов Рамазан Меджидович",
-    faculty: "Кафедра Биофизики, информатики и мед. аппаратуры",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Заведующий",
-  },
-  {
-    id: 10,
-    fullName: "Гусейнова Сабина Тагировна",
-    faculty: "Кафедра анатомии человека",
-    phone: null,
-    email: null,
-    experience: null,
-    education: null,
-    skills: null,
-    photo: null,
-    socialMedia: null,
-    position: "Заведующая",
-  },
-];
+import { createAccountUrl } from "@/backend/api/url";
 
 const EmployeeRegistry = () => {
+  const [ employees, setEmployees ] = useState([]);
+
+  async function getEmployees() {
+    try {
+      let res = await fetch(createAccountUrl);
+      let data = await res.json();
+      setEmployees(data);
+
+      console.log('это поль', employees)
+      return data
+    } catch (err) {
+      console.error('Ошибка при получении данных о сотрудниках:', err);
+    }
+  }
+
+  useEffect(() => {
+    getEmployees();
+  }, [])
+
   const [name, setName] = useState("");
   let filteredEmployee = employees.filter((item) => {
     return (
@@ -168,13 +55,11 @@ const EmployeeRegistry = () => {
         />
       </div>
       <div className={styles.grid}>
-        {filteredEmployee.length
-          ? filteredEmployee.map((emp) => (
-              <EmployeeCard key={emp.id} employee={emp} />
-            ))
-          : employees.map((emp) => (
-              <EmployeeCard key={emp.id} employee={emp} />
-            ))}
+        {
+          employees.length ? employees.map((emp) => (
+            <EmployeeCard key={emp.id} employee={emp} />
+          )) : 'нет данных'
+        }
       </div>
     </motion.div>
   );
@@ -189,26 +74,51 @@ const EmployeeCard = ({ employee }) => {
     <div className={styles.card}>
       <div className={styles.header}>
         <div className={styles.info}>
-          <h4 className={styles.fullName}>{employee.fullName}</h4>
-          <p>- {employee.position}</p>
-          <span className={styles.status}>{employee.faculty}</span>
+          <h4 className={styles.fullName}>
+            {employee.fullName || "😎 Имя в процессе заполнения"}
+          </h4>
+          <p>- {employee.position || "🏢 Пока не назначена"}</p>
+          <span className={styles.status}>
+            {employee.faculty || "🤷‍♂️ Пока нет информации"}
+          </span>
         </div>
         <button
           className={styles.expandButton}
           onClick={() => setExpanded(!expanded)}
-        ></button>
+        >
+          {expanded ? "▲" : "▼"}
+        </button>
       </div>
 
-      <div className={styles.details}>
-        <div className={styles.contacts}>
-          <a href={`mailto:${employee.email}`}></a>
-          <a href={`tel:${employee.phone}`}></a>
-          <a href={employee.linkedin} target="_blank" rel="noreferrer"></a>
+      {expanded && (
+        <div className={styles.details}>
+          <div className={styles.contacts}>
+            <a href={`mailto:${employee.email || ""}`}>
+              {employee.email || "😅 Email скрыт"}
+            </a>
+            <a href={`tel:${employee.phone || ""}`}>
+              {employee.phone || "📞 Нет телефона"}
+            </a>
+            <a
+              href={employee.socialMedia || "#"}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {employee.socialMedia || "🌐 Нет соц. сети"}
+            </a>
+          </div>
+
+          <div className={styles.extraInfo}>
+            <p>Опыт: {employee.experience || "💼 В процессе накопления"}</p>
+            <p>Образование: {employee.education || "🎓 Пока в пути"}</p>
+            <p>Навыки: {employee.skills || "😉 В процессе изучения"}</p>
+          </div>
+
+          <Button className={styles.messageBtn} variant="outlined">
+            Подробно
+          </Button>
         </div>
-        <Button className={styles.messageBtn} variant="outlined">
-          Подробно
-        </Button>
-      </div>
+      )}
     </div>
   );
 };

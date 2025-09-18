@@ -1,128 +1,133 @@
 "use client";
-import React from "react";
 import styles from "./Registration.module.scss";
-import { useState } from "react";
 import { Button, TextField } from "@mui/material";
-import supabaseAccount from "@/api/supabaseClientCreateAccount";
+import { useForm } from "react-hook-form";
 
 export default function DocumentsView() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [key, setKey] = useState("");
-  const [position, setPosition] = useState("");
-  const [workplace, setWorkPlace] = useState("");
-  const [description, setDescription] = useState("");
+  const { register, handleSubmit } = useForm();
 
-  async function createAccount() {
-    const { error } = await supabaseAccount.from("register").insert([
-      {
-        first_name: firstName,
-        last_name: lastName,
-        key: key,
-        description: description,
-        job_title: position,
-        department: workplace,
-      },
-    ]);
+  async function registryEmployee(data, e) {
+    e.preventDefault();
+    console.log("это дата", data);
 
-    if (error) console.log(error);
-    setFirstName("");
-    setLastName("");
-    setKey("");
-    setPosition("");
-    setWorkPlace("");
-    setDescription("");
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/create-account-employee",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Ошибка try (Registration.jsx): ${response.status}`);
+      }
+
+      const createdEmployee = await response.json();
+      console.log("Создан сотрудник:", createdEmployee);
+    } catch (err) {
+      console.log(`Ошибка catch (Registration.jsx): ${err}`);
+    }
   }
 
   return (
     <div className={styles.content}>
-      <h1 className={styles.title}>Заполните данные аккаунта</h1>
-      <form className={styles.form}>
+      <h1 className={styles.title}>Заполните данные сотрудника</h1>
+      <form onSubmit={handleSubmit(registryEmployee)} className={styles.form}>
+        <div className={styles.field}>
+         <TextField
+            variant="outlined"
+            label="ФИО"
+            type="text"
+            {...register("fisrtName")}
+            className={styles.input}
+          />
+        </div> 
+
         <div className={styles.field}>
           <TextField
             variant="outlined"
-            label="Имя"
+            label="Кафедра/Факультет"
             type="text"
-            id="key"
-            name="key"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            {...register("faculty")}
             className={styles.input}
           />
         </div>
+
         <div className={styles.field}>
           <TextField
             variant="outlined"
-            label="Фамилия"
+            label="Телефон"
             type="text"
-            id="key"
-            name="key"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            {...register("phone")}
             className={styles.input}
           />
         </div>
+
         <div className={styles.field}>
           <TextField
             variant="outlined"
-            label="Ключ"
-            type="text"
-            id="key"
-            name="key"
-            value={key}
-            onChange={(e) => setKey(e.target.value)}
+            label="Email"
+            type="email"
+            {...register("email")}
             className={styles.input}
           />
         </div>
+
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Опыт работы"
+            type="text"
+            {...register("experience")}
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Образование"
+            type="text"
+            {...register("education")}
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Навыки"
+            type="text"
+            {...register("skills")}
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.field}>
+          <TextField
+            variant="outlined"
+            label="Соц. сеть"
+            type="text"
+            {...register("socialMedia")}
+            className={styles.input}
+          />
+        </div>
+
         <div className={styles.field}>
           <TextField
             variant="outlined"
             label="Должность"
             type="text"
-            id="key"
-            name="key"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            {...register("position")}
             className={styles.input}
           />
         </div>
-        <div className={styles.field}>
-          <TextField
-            variant="outlined"
-            label="Место работы"
-            type="text"
-            id="key"
-            name="key"
-            value={workplace}
-            onChange={(e) => setWorkPlace(e.target.value)}
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="description" className={styles.label}>
-            Описание:
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className={styles.textarea}
-          />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="creationDate" className={styles.label}>
-            Дата создания:
-          </label>
-          <input
-            id="creationDate"
-            name="creationDate"
-            className={styles.input}
-            placeholder="Автоматически"
-            disabled
-          />
-        </div>
-        <Button onClick={() => createAccount()} variant="outlined" className={styles.button}>
+
+        <Button type="submit" variant="outlined" className={styles.button}>
           Зарегистрировать
         </Button>
       </form>
