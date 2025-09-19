@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
 import { Button } from "@mui/material";
 import { createAccountUrl } from "@/backend/api/url";
+import { employeesDefaultData } from '../../backend/data/defaultData'
 
 const EmployeeRegistry = () => {
-  const [ employees, setEmployees ] = useState([]);
+  const [employees, setEmployees] = useState([]);
+  console.log('emplyeesDefData:', employeesDefaultData)
 
   async function getEmployees() {
     try {
       let res = await fetch(createAccountUrl);
       let data = await res.json();
       setEmployees(data);
-
-      console.log('это поль', employees)
       return data
     } catch (err) {
       console.error('Ошибка при получении данных о сотрудниках:', err);
@@ -26,6 +26,7 @@ const EmployeeRegistry = () => {
     getEmployees();
   }, [])
 
+  // Поисковик сотрудников по ФИО (пока не работает из-за изменений в структуре объекта)
   const [name, setName] = useState("");
   let filteredEmployee = employees.filter((item) => {
     return (
@@ -34,9 +35,6 @@ const EmployeeRegistry = () => {
       item.fullName.split(" ")[2].toLowerCase().includes(name.toLowerCase())
     );
   });
-
-  console.log(filteredEmployee);
-  console.log(name);
 
   return (
     <motion.div
@@ -58,8 +56,9 @@ const EmployeeRegistry = () => {
         {
           employees.length ? employees.map((emp) => (
             <EmployeeCard key={emp.id} employee={emp} />
-          )) : 'нет данных'
-        }
+          )) : employeesDefaultData.map((emp) => (
+            <EmployeeCard key={emp.id} employee={emp} />
+          ))}
       </div>
     </motion.div>
   );
@@ -93,18 +92,20 @@ const EmployeeCard = ({ employee }) => {
       {expanded && (
         <div className={styles.details}>
           <div className={styles.contacts}>
-            <a href={`mailto:${employee.email || ""}`}>
+            Почта: <a href={`mailto:${employee.email || ""}`}>
               {employee.email || "😅 Email скрыт"}
             </a>
-            <a href={`tel:${employee.phone || ""}`}>
+            <br />
+            Телефон:<a href={`tel:${employee.phone || ""}`}>
               {employee.phone || "📞 Нет телефона"}
             </a>
-            <a
+            <br />
+            {`${employee.socialMedia.split(' ')[0]} `}<a
               href={employee.socialMedia || "#"}
               target="_blank"
               rel="noreferrer"
             >
-              {employee.socialMedia || "🌐 Нет соц. сети"}
+              {employee.socialMedia.split(' ')[1] || "🌐 Нет соц. сети"}
             </a>
           </div>
 
@@ -113,10 +114,6 @@ const EmployeeCard = ({ employee }) => {
             <p>Образование: {employee.education || "🎓 Пока в пути"}</p>
             <p>Навыки: {employee.skills || "😉 В процессе изучения"}</p>
           </div>
-
-          <Button className={styles.messageBtn} variant="outlined">
-            Подробно
-          </Button>
         </div>
       )}
     </div>

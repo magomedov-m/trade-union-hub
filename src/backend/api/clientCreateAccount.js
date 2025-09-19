@@ -37,6 +37,7 @@ router.post('/', (req, res) => {
     const registeredEmployee = {
         id: Date.now(),
         fullName: req.body.fullName || "😎 Имя в процессе заполнения",
+        key: req.body.key,
         faculty: req.body.faculty || "🤷‍♂️ Нет информации",
         phone: req.body.phone || "📞 Пока нет",
         email: req.body.email || "😅 Секрет!",
