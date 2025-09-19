@@ -1,4 +1,5 @@
 "use client";
+import { createAccountUrl } from "@/backend/api/url";
 import styles from "./Registration.module.scss";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -12,7 +13,7 @@ export default function DocumentsView() {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/create-account-employee",
+        createAccountUrl,
         {
           method: "POST",
           headers: {
@@ -41,6 +42,16 @@ export default function DocumentsView() {
          <TextField
             variant="outlined"
             label="ФИО"
+            type="text"
+            {...register("fisrtName")}
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.field}>
+         <TextField
+            variant="outlined"
+            label="Ключ сотрудника"
             type="text"
             {...register("fisrtName")}
             className={styles.input}

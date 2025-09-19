@@ -125,11 +125,12 @@ $bp-xl: 1280px;  // десктоп большой
 
   a {
     margin-right: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #3b82f6;
+    transition: .4s;
 
     &:hover {
-      color: #2563eb;
+      color: #2368d6;
     }
   }
 }
