@@ -6,7 +6,6 @@
   padding: 20px;
 }
 
-/* Hero Section */
 .hero {
   text-align: center;
   background: linear-gradient(120deg, #d9f2ff, #f9faff);
@@ -44,7 +43,6 @@
   }
 }
 
-/* Mission Section */
 .mission {
   margin-bottom: 60px;
   line-height: 1.6;
@@ -71,7 +69,6 @@
   }
 }
 
-/* Features Section */
 .features {
   margin-bottom: 60px;
 
@@ -122,7 +119,6 @@
   }
 }
 
-/* Team Section */
 .team {
   margin-bottom: 60px;
 
@@ -191,9 +187,7 @@
     input,
     textarea {
       width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid $border-color;
+      font-size: 14px;
       border-radius: 8px;
     }
 

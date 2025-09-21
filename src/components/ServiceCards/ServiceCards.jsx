@@ -40,8 +40,8 @@ export default function ServiceCards() {
       <div className={styles.cardsContainer}>
         {cardsInfo.map((item) => {
           return (
-            <AnimatePresence>
-              <Link key={item.id} href={item.link || ''}>
+            <AnimatePresence key={item.id}>
+              <Link href={item.link || ''}>
                 <div className={styles.cardsItem}>
                   <figure className={styles.image}>
                     <Image
