@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./EmployeeRegistry.module.scss";
 import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
-import { Button } from "@mui/material";
 import { createAccountUrl } from "@/backend/api/url";
 import { employeesDefaultData } from '../../backend/data/defaultData'
 
@@ -70,7 +69,7 @@ const EmployeeCard = ({ employee }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className={styles.card}>
+    <div key={employee.id} className={styles.card}>
       <div className={styles.header}>
         <div className={styles.info}>
           <h4 className={styles.fullName}>
