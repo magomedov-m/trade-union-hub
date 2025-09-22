@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "is_approved": true,
+    "created_at": 1758567093406,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "msg": "Работаю одни профессионалы"
+  },
+  {
+    "is_approved": true,
+    "created_at": 1758567414064,
+    "first_name": "Алексей",
+    "last_name": "Никифоров",
+    "msg": "Мне очень понравилось. Хорошая работа."
+  },
+  {
+    "is_approved": false,
+    "created_at": 1758576645806,
+    "first_name": "Ваше имя",
+    "last_name": "Фамилиос",
+    "msg": ""
+  },
+  {
+    "is_approved": false,
+    "created_at": 1758576837058,
+    "first_name": "АлиАбабва",
+    "last_name": "Принц",
+    "msg": "Здесь мне нравится. Остаемся!"
+  },
+  {
+    "is_approved": false,
+    "created_at": 1758577008324,
+    "first_name": "Али",
+    "last_name": "Хочбаров",
+    "msg": "Все четко!"
+  },
+  {
+    "is_approved": false,
+    "created_at": 1758577117750,
+    "first_name": "ddd",
+    "last_name": "aaa",
+    "msg": "vvv"
+  }
+]

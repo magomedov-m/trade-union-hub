@@ -2,115 +2,43 @@ import React, { useEffect, useState } from "react";
 import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
-import supabase from "@/api/supabaseClientFeedback";
+import { addFeedbackMessageUrl } from "@/backend/api/url";
 
 export default function EventsContainer() {
-  const [approvedFeedback, setApprovedFeedback] = useState([
-    {
-      is_approved: true,
-      created_at: "2025-09-15T10:15:30",
-      text: "Отличная организация! Всегда поддерживают сотрудников.",
-      first_name: "Алексей",
-      last_name: "Иванов",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-14T09:45:10",
-      text: "Очень полезные мероприятия и тренинги.",
-      first_name: "Мария",
-      last_name: "Петрова",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-13T12:30:00",
-      text: "Профессиональная команда, с которой приятно работать.",
-      first_name: "Игорь",
-      last_name: "Сидоров",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-12T14:20:45",
-      text: "Спасибо за внимательное отношение к каждому сотруднику.",
-      first_name: "Елена",
-      last_name: "Кузнецова",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-11T08:10:55",
-      text: "Организация помогает развиваться и учиться новому.",
-      first_name: "Дмитрий",
-      last_name: "Морозов",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-10T16:05:20",
-      text: "Отличная коммуникация и поддержка коллег.",
-      first_name: "Анна",
-      last_name: "Васильева",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-09T11:50:15",
-      text: "Рекомендую всем сотрудникам участвовать в мероприятиях.",
-      first_name: "Сергей",
-      last_name: "Федоров",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-08T13:40:30",
-      text: "Очень доброжелательная атмосфера и поддержка руководства.",
-      first_name: "Ольга",
-      last_name: "Николаева",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-07T15:25:50",
-      text: "Получила много полезной информации на тренингах.",
-      first_name: "Ксения",
-      last_name: "Смирнова",
-    },
-    {
-      is_approved: true,
-      created_at: "2025-09-06T09:05:10",
-      text: "Замечательная организация, с которой приятно сотрудничать.",
-      first_name: "Владимир",
-      last_name: "Алексеев",
-    }
-  ]);
+  const [approvedFeedback, setApprovedFeedback] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchApprovedFeedback();
+    fetchFeedback();
   }, []);
 
-  async function fetchApprovedFeedback() {
+  async function fetchFeedback() {
     try {
-      const { data, error } = await supabase
-        .from("feedback_message")
-        .select("*")
-        .order("created_at", { ascending: true });
+      const response = await fetch(addFeedbackMessageUrl);
+      const feedbackMsgs = await response.json();
 
       if (error) setError("Ошибка загрузки отзывов:", error);
       else {
-        setApprovedFeedback(data);
+        setApprovedFeedback(feedbackMsgs);
       }
     } catch (err) {
       setError("Непредвиденная ошибка при загрузке:", error);
     }
   }
+
   return (
     <div className={styles.feedbackMessages}>
       {/* Reviews Section */}
       <section className={styles.reviews}>
         <h2>Отзывы о нашей организации</h2>
         <div className={styles.reviewsSlider}>
-          {approvedFeedback.map((item, idx) => {
+          {approvedFeedback.map((item) => {
             if (item.is_approved) {
               return (
-                <div className={styles.reviewCard} key={idx}>
-                  <h3>{`${item.created_at}`.slice(0, 19)}</h3>
+                <div className={styles.reviewCard} key={item.created_at}>
+                  <h3>{new Date(item.created_at).toLocaleString()}</h3>
                   <br />
-                  <p>“{item.text}”</p>
+                  <p>“{item.msg}”</p>
                   <h4>{`${item.last_name} ${item.first_name}`}</h4>
                 </div>
               );

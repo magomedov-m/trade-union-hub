@@ -9,7 +9,6 @@ export default function DocumentsView() {
 
   async function registryEmployee(data, e) {
     e.preventDefault();
-    console.log("это дата", data);
 
     try {
       const response = await fetch(
@@ -43,7 +42,7 @@ export default function DocumentsView() {
             variant="outlined"
             label="ФИО"
             type="text"
-            {...register("fisrtName")}
+            {...register("fullName")}
             className={styles.input}
           />
         </div>
@@ -53,7 +52,7 @@ export default function DocumentsView() {
             variant="outlined"
             label="Ключ сотрудника"
             type="text"
-            {...register("fisrtName")}
+            {...register("key")}
             className={styles.input}
           />
         </div> 
