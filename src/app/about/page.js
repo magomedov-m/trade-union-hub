@@ -2,29 +2,12 @@
 import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
 import styles from "./AboutUsPage.module.scss";
-import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import supabase from "@/api/supabaseClientFeedback";
+import FeedbackDSMU from "@/components/FeedbackDSMU/FeedbackDSMU";
 
 export default function About() {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [message, setMessage] = useState("");
 
-  async function addMessage() {
-    const { error } = await supabase.from("feedback_message").insert([
-      {
-        first_name: name,
-        last_name: lastName,
-        text: message,
-      },
-    ]);
-
-    if (error) console.log(error);
-    setName("");
-    setLastName("");
-    setMessage("");
-  }
   return (
     <motion.div
       exit={pageVariables.out}
@@ -112,41 +95,7 @@ export default function About() {
       </section>
 
       {/* Contact Section */}
-      <section className={styles.contact}>
-        <h2>Оставьте свой отзыв</h2>
-        <form className={styles.contactForm}>
-          <TextField
-            id="outlined-basic"
-            label="Ваше имя"
-            variant="outlined"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Ваша фамилия"
-            variant="outlined"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Нам интересно Ваше мнение"
-            variant="outlined"
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-          />
-          <Button onClick={() => addMessage()}>Отправить</Button>
-        </form>
-        <div className={styles.contactInfo}>
-          <p>
-            Республика Дагестан, г. Махачкала, ул. Гусаева, дом 5, этаж 3, каб.
-            39
-          </p>
-          <p>Тел. для справок: 8 (8722) 67-08-02</p>
-          <p>Email: profmed@dsmu.ru</p>
-        </div>
-      </section>
+      <FeedbackDSMU />
     </motion.div>
   );
 }
