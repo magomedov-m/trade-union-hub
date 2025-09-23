@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
-import supabase from "@/api/supabaseClientChat";
+import supabase from "@/supabaseApi/supabaseClientChat";
 
 const Chat = () => {
   const [nameTitle, setNameTitle] = useState("");
@@ -9,8 +9,10 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [showForm, setShowForm] = useState(true);
   const [allMessages, setAllMessages] = useState([]);
-  let field = true
-  nameTitle.length > 0 && lastNameTitle.length > 0 ? field = false : field = true
+  let field = true;
+  nameTitle.length > 0 && lastNameTitle.length > 0
+    ? (field = false)
+    : (field = true);
 
   async function addMessageInChat() {
     const { error } = await supabase.from("chat").insert([
@@ -29,18 +31,19 @@ const Chat = () => {
     getMessages();
 
     const channel = supabase
-    .channel('public:chat')
-    .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'chat' },
+      .channel("public:chat")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "chat" },
         (payload) => {
-            setAllMessages(prev => [...prev, payload.new]);
+          setAllMessages((prev) => [...prev, payload.new]);
         }
-    ).subscribe();
+      )
+      .subscribe();
 
     return () => {
-        supabase.removeChannel(channel);
-    }
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   async function getMessages() {
@@ -108,7 +111,6 @@ const Chat = () => {
         {allMessages.map((item) => {
           return nameTitle == item.first_name &&
             lastNameTitle == item.last_name ? (
-
             <div key={item.id} className={styles.messageRight}>
               <span className={styles.userName}>
                 {item.first_name} {item.last_name}
@@ -122,7 +124,6 @@ const Chat = () => {
               </span>
               <p className={styles.messageText}>{item.message}</p>
             </div>
-            
           );
         })}
       </div>

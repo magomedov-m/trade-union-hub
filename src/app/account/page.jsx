@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AccountPage.module.scss";
 import useStore from "@/zustand/store";
-import supabaseAccount from "@/api/supabaseClientCreateAccount";
+import supabaseAccount from "@/supabaseApi/supabaseClientCreateAccount";
 import ChatIcon from "@mui/icons-material/Chat";
 import Link from "next/link";
 import SkeletonAccount from "@/components/Skeletone/SkeletonAccount";
@@ -49,7 +49,9 @@ export default function page() {
               <span className={styles.label}>Ключ: {data[0].key}</span>
             </div>
             <div className={styles.field}>
-              <span className={styles.label}>Должность: {data[0].job_title}</span>
+              <span className={styles.label}>
+                Должность: {data[0].job_title}
+              </span>
             </div>
             <div className={styles.field}>
               <span className={styles.label}>
@@ -57,7 +59,9 @@ export default function page() {
               </span>
             </div>
             <div className={styles.field}>
-              <span className={styles.label}>Описание: {data[0].description}</span>
+              <span className={styles.label}>
+                Описание: {data[0].description}
+              </span>
             </div>
             <div className={styles.field}>
               <span className={styles.label}>
@@ -73,7 +77,9 @@ export default function page() {
           </Link>
         </div>
       ) : (
-        <div className={styles.skeleton}><SkeletonAccount  /></div>
+        <div className={styles.skeleton}>
+          <SkeletonAccount />
+        </div>
       )}
     </div>
   );

@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import styles from "./ConnectUs.module.scss";
 import ContactCard from "../ContactCard/ContactCard";
-import supabase from "@/api/supabaseClientConnect";
+import supabase from "@/supabaseApi/supabaseClientConnect";
 import { useState } from "react";
 
 export default function ConnectUs() {

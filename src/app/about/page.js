@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
 import styles from "./AboutUsPage.module.scss";
 import { useState } from "react";
-import supabase from "@/api/supabaseClientFeedback";
+import supabase from "@/supabaseApi/supabaseClientFeedback";
 import FeedbackDSMU from "@/components/FeedbackDSMU/FeedbackDSMU";
 
 export default function About() {

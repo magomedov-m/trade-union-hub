@@ -3,6 +3,7 @@ import styles from "./FeedbackContainer.module.scss";
 import { Button } from "@mui/material";
 import Link from "next/link";
 import { addFeedbackMessageUrl } from "@/backend/api/url";
+import NoneData from "../NoneData/NoneData";
 
 export default function EventsContainer() {
   const [approvedFeedback, setApprovedFeedback] = useState([]);
@@ -32,26 +33,29 @@ export default function EventsContainer() {
       <section className={styles.reviews}>
         <h2>Отзывы о нашей организации</h2>
         <div className={styles.reviewsSlider}>
-          {approvedFeedback.map((item) => {
-            if (item.is_approved) {
-              return (
-                <div className={styles.reviewCard} key={item.created_at}>
-                  <h3>{new Date(item.created_at).toLocaleString()}</h3>
-                  <br />
-                  <p>“{item.msg}”</p>
-                  <h4>{`${item.last_name} ${item.first_name}`}</h4>
-                </div>
-              );
-            }
-          })}
+          {approvedFeedback.length ? (
+            approvedFeedback.map((item) => {
+              if (item.is_approved) {
+                return (
+                  <div className={styles.reviewCard} key={item.created_at}>
+                    <h3>{new Date(item.created_at).toLocaleString()}</h3>
+                    <br />
+                    <p>“{item.msg}”</p>
+                    <h4>{`${item.last_name} ${item.first_name}`}</h4>
+                  </div>
+                );
+              }
+            })
+          ) : (
+            <NoneData title='Пока нет отзывов' text='Будьте первым, кто поделится своим мнением!' />
+          )}
         </div>
-      </section>
-
-      <div className={styles.content}>
         <Link href="/about">
-          <Button>Написать отзыв</Button>
+          <Button className={styles.emptyButton} variant="outlined">
+            Написать отзыв
+          </Button>
         </Link>
-      </div>
+      </section>
     </div>
   );
 }

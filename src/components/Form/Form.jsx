@@ -3,35 +3,33 @@ import styles from "./Form.module.scss";
 import { Button, CircularProgress } from "@mui/material";
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import supabaseConnect from "@/api/supabaseClientConnect";
+import supabaseConnect from "@/supabaseApi/supabaseClientConnect";
 
 export default function Form() {
-  const [name, setName] = useState('');
-  const [mail, setMail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  console.log(name, mail)
+  console.log(name, mail);
 
   async function sendConnect() {
     setLoading(true);
-    const {error} = await supabaseConnect
-    .from('connect')
-    .insert([
+    const { error } = await supabaseConnect.from("connect").insert([
       {
         name: name,
         mail: mail,
         phone: phone,
-        text: message
-      }
+        text: message,
+      },
     ]);
 
-    if (error) console.log('Ошибка:', error);
+    if (error) console.log("Ошибка:", error);
     else {
-      setName('');
-      setMail('');
-      setPhone('');
-      setMessage('');
+      setName("");
+      setMail("");
+      setPhone("");
+      setMessage("");
       setLoading(false);
     }
   }
@@ -78,7 +76,11 @@ export default function Form() {
           ></textarea>
         </label>
         <br />
-        <Button className={styles.submit} variant="outlined" onClick={() => sendConnect()}>
+        <Button
+          className={styles.submit}
+          variant="outlined"
+          onClick={() => sendConnect()}
+        >
           Отправить
         </Button>
       </form>
