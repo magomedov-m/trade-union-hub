@@ -33,4 +33,20 @@ router.post('/', function (req, res) {
     res.status(201).json(sentFbMsg);
 });
 
+router.patch('/:created_at', function (req, res) {
+    const { created_at } = req.params;
+    const { is_approved } = req.body;
+
+    const index = feedbackMsgList.findIndex(fb => fb.created_at == created_at);
+
+    if (index === -1) {
+        return res.status(404).json({ error: "Отзыв не найден" });
+    }
+
+    feedbackMsgList[index].is_approved = is_approved;
+    writeData(pathFile, feedbackMsgList);
+
+    res.json(feedbackMsgList[index]);
+});
+
 export default router;

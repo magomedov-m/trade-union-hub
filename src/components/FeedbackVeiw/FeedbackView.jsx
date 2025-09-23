@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./FeedbackView.module.scss";
-import supabase from "@/api/supabaseClientFeedback";
 import { Button } from "@mui/material";
 import Skeletone from "../Skeletone/Skeletone";
 import { addFeedbackMessageUrl } from "@/backend/api/url";
+import NoneData from "../NoneData/NoneData";
 
 export default function FeedbackView() {
   const [feedback, setFeedback] = useState([]);
   const [error, setError] = useState(null);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   async function fetchFeedback() {
     try {
@@ -23,13 +24,48 @@ export default function FeedbackView() {
     }
   }
 
+  async function toggleApproval(item) {
+    try {
+      const response = await fetch(
+        `${addFeedbackMessageUrl}/${item.created_at}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ is_approved: !item.is_approved }),
+        }
+      );
+
+      if (!response.ok) throw new Error("Ошибка обновления отзыва");
+
+      const updated = await response.json();
+
+      setFeedback((prev) =>
+        prev.map((fb) => (fb.created_at === updated.created_at ? updated : fb))
+      );
+    } catch (err) {
+      setError("Ошибка при изменении статуса");
+    }
+  }
+
   useEffect(() => {
     fetchFeedback();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (feedback.length === 0) {
+        setIsEmpty(true);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [feedback]);
+
   return (
     <div className={styles.content}>
-      {!feedback.length
+      {isEmpty ? <NoneData title='Пока нет отзывов' text='Ожидайте, пока тут появятся сообщения' /> : !feedback.length
         ? Array.from({ length: 10 }, (_, index) => <Skeletone key={index} />)
         : feedback.map((item) => {
             return (
@@ -39,10 +75,8 @@ export default function FeedbackView() {
                 <h4
                   className={styles.name}
                 >{`${item.last_name} ${item.first_name}`}</h4>
-                <Button
-                  variant="outlined"
-                >
-                  {item.is_approved ? "Скрыть" : "Одобрить"}
+                <Button onClick={() => toggleApproval(item)} variant="outlined">
+                  {item.is_approved ? "Скрыть" : "Показать"}
                 </Button>
               </div>
             );
