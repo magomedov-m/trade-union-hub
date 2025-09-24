@@ -9,8 +9,6 @@ const openai = new OpenAI({
   baseURL: process.env.PROXY_API_RU,
 });
 
-console.log(apiKey, baseURL)
-
 function readEmployees() {
   if (!fs.existsSync(employeesFile)) return [];
   const raw = fs.readFileSync(employeesFile, "utf8");
