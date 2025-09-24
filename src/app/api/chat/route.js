@@ -5,9 +5,11 @@ import fs from "fs";
 const employeesFile = path.join(process.cwd(), "src", "backend", "data", "accounts.json");
 
 const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_PROXY_API_RU_KEY,
-  baseURL: process.env.NEXT_PUBLIC_PROXY_API_RU,
+  apiKey: process.env.PROXY_API_RU_KEY,
+  baseURL: process.env.PROXY_API_RU,
 });
+
+console.log(apiKey, baseURL)
 
 function readEmployees() {
   if (!fs.existsSync(employeesFile)) return [];
