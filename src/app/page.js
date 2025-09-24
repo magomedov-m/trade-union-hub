@@ -8,6 +8,7 @@ import Contacts from "@/components/Contacts/Contacts";
 import Footer from "@/components/Footer/Footer";
 import { motion } from "framer-motion";
 import { pageTransitions, pageVariables } from "./_pageAnimations";
+import ChatBox from "@/AI-agent-chat/ChatBox";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
     >
       <Banner />
       <AboutPPo />
+      <ChatBox />
       <ServiceCards />
       <EventsContainer />
       <Contacts />

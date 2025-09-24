@@ -23,6 +23,7 @@
     "framer-motion": "^12.14.0",
     "material-ui-popup-state": "^5.3.6",
     "next": "15.3.0",
+    "openai": "^5.23.0",
     "react": "^19.0.0",
     "react-content-loader": "^7.0.2",
     "react-dom": "^19.0.0",
