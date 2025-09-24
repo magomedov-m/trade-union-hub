@@ -16,7 +16,7 @@ export default function MenuPopupState() {
             {role}
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <Link href="/admin">
+            <Link href="/login-admin">
               <MenuItem onClick={popupState.close}>Админ</MenuItem>
             </Link>
             <Link href='/create-account'>
