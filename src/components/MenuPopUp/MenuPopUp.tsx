@@ -16,7 +16,7 @@ const MenuPopupState = () => {
             {role}
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <Link href="/login-admin">
+            <Link href="/admin">
               <MenuItem onClick={popupState.close}>Админ</MenuItem>
             </Link>
             <Link href='/create-account'>

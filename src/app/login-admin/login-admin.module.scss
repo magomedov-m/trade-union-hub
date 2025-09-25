@@ -1,69 +1,69 @@
-.adminLogin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #cce2ff, #e6f7f1);
-}
+// .adminLogin {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 100vh;
+//   background: linear-gradient(135deg, #cce2ff, #e6f7f1);
+// }
 
-.loginForm {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+// .loginForm {
+//   background: white;
+//   padding: 2rem;
+//   border-radius: 1rem;
+//   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+//   width: 100%;
+//   max-width: 400px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1rem;
+// }
 
-.title {
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
+// .title {
+//   text-align: center;
+//   margin-bottom: 0.5rem;
+// }
 
-.formGroup {
-  display: flex;
-  flex-direction: column;
+// .formGroup {
+//   display: flex;
+//   flex-direction: column;
 
-  label {
-    margin-bottom: 0.3rem;
-    font-weight: 500;
-  }
+//   label {
+//     margin-bottom: 0.3rem;
+//     font-weight: 500;
+//   }
 
-  input {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    outline: none;
-    transition: border 0.2s ease;
+//   input {
+//     padding: 0.6rem 0.8rem;
+//     border: 1px solid #ccc;
+//     border-radius: 0.5rem;
+//     font-size: 1rem;
+//     outline: none;
+//     transition: border 0.2s ease;
 
-    &:focus {
-      border-color: #0077ff;
-    }
-  }
-}
+//     &:focus {
+//       border-color: #0077ff;
+//     }
+//   }
+// }
 
-.submitBtn {
-  background: #0077ff;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+// .submitBtn {
+//   background: #0077ff;
+//   color: white;
+//   border: none;
+//   padding: 0.8rem;
+//   font-size: 1rem;
+//   border-radius: 0.5rem;
+//   cursor: pointer;
+//   transition: background 0.3s ease;
 
-  &:hover {
-    background: #005ccc;
-  }
-}
+//   &:hover {
+//     background: #005ccc;
+//   }
+// }
 
-@media (max-width: 480px) {
-  .loginForm {
-    padding: 1.5rem;
-    max-width: 90%;
-  }
-}
+// @media (max-width: 480px) {
+//   .loginForm {
+//     padding: 1.5rem;
+//     max-width: 90%;
+//   }
+// }
