@@ -1,5 +1,5 @@
 import path from 'path';
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { fileURLToPath } from 'url';
 import { readData, writeData } from '../utils/readWriteFunctions.js';
 
@@ -11,23 +11,15 @@ const router = Router();
 const dataDir = path.join(__dirname, '../', 'data');
 const pathFile = path.join(dataDir, 'feedback.json');
 
-const feedbackMsgList: SendFeedbackMessage[] = readData(pathFile) as SendFeedbackMessage[];
+const feedbackMsgList = readData(pathFile);
 
-interface SendFeedbackMessage {
-    is_approved: boolean;
-    created_at: number;
-    first_name: string;
-    last_name: string;
-    msg: string;
-}
-
-router.get('/', (req: Request, res: Response<SendFeedbackMessage[]>) => {
-    res.json(feedbackMsgList as SendFeedbackMessage[]);
+router.get('/', function (req, res) {
+    res.json(feedbackMsgList);
 });
 
-router.post('/', (req: Request<{}, {}, SendFeedbackMessage>, res: Response<SendFeedbackMessage>) => {
+router.post('/', function (req, res) {
 
-    const sentFbMsg: SendFeedbackMessage = {
+    const sentFbMsg = {
         is_approved: false,
         created_at: Date.now(),
         first_name: req.body.first_name,
@@ -41,15 +33,11 @@ router.post('/', (req: Request<{}, {}, SendFeedbackMessage>, res: Response<SendF
     res.status(201).json(sentFbMsg);
 });
 
-interface UpdateFeedbackBody {
-    is_approved: boolean;
-}
-
-router.patch('/:created_at', (req: Request<{ created_at: string }, {}, UpdateFeedbackBody>, res: Response<SendFeedbackMessage | { error: string }>) => {
+router.patch('/:created_at', function (req, res) {
     const { created_at } = req.params;
     const { is_approved } = req.body;
 
-    const index = feedbackMsgList.findIndex(fb => fb.created_at === Number(created_at));
+    const index = feedbackMsgList.findIndex(fb => fb.created_at == created_at);
 
     if (index === -1) {
         return res.status(404).json({ error: "Отзыв не найден" });

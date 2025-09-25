@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { readData, writeData } from '../utils/readWriteFunctions.js';
@@ -11,45 +11,16 @@ const router = Router();
 const dataDir = path.join(__dirname, '../', 'data');
 const pathFile = path.join(dataDir, 'accounts.json');
 
-interface Employee {
-    id: number;
-    fullName: string;
-    key: string;
-    faculty: string;
-    phone: string,
-    email: string;
-    experience: string;
-    education: string;
-    skills: string;
-    photo: string,
-    socialMedia: string;
-    position: string;
-}
-
-router.get('/', (req: Request, res: Response) => {
-    const employees = (readData(pathFile) as Employee[]) || [];
+router.get('/', function (req, res) {
+    const employees = readData(pathFile);
     res.json(employees);
 
 });
 
-interface EmployeeRequestBody {
-    fullName?: string;
-    key?: string;
-    faculty?: string;
-    phone?: string;
-    email?: string;
-    experience?: string;
-    education?: string;
-    skills?: string;
-    photo?: string;
-    socialMedia?: string;
-    position?: string;
-}
+router.post('/', (req, res) => {
+    const employees = readData(pathFile);
 
-router.post('/', (req: Request<{}, {}, EmployeeRequestBody>, res: Response) => {
-    const employees = (readData(pathFile) as Employee[]) || [];
-
-    const registeredEmployee: Employee = {
+    const registeredEmployee = {
         id: Date.now(),
         fullName: req.body.fullName || "😎 Имя в процессе заполнения",
         key: req.body.key,

@@ -32,7 +32,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/backend/api/clientCreateAccount.js", "src/backend/api/clientFeedback.js", "src/backend/utils/readWriteFunctions.js"  ],
   "exclude": [
     "node_modules"
   ]
