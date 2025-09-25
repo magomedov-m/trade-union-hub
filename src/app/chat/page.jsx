@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
-import supabase from "@/supabaseApi/supabaseClientChat";
 
 const Chat = () => {
   const [nameTitle, setNameTitle] = useState("");
@@ -14,60 +13,59 @@ const Chat = () => {
     ? (field = false)
     : (field = true);
 
-  async function addMessageInChat() {
-    const { error } = await supabase.from("chat").insert([
-      {
-        first_name: nameTitle,
-        last_name: lastNameTitle,
-        message: message,
-      },
-    ]);
+  // async function addMessageInChat() {
+  //   const { error } = await supabase.from("chat").insert([
+  //     {
+  //       first_name: nameTitle,
+  //       last_name: lastNameTitle,
+  //       message: message,
+  //     },
+  //   ]);
 
-    if (error) console.log(error);
-    setMessage("");
-  }
+  //   if (error) console.log(error);
+  //   setMessage("");
+  // }
 
-  useEffect(() => {
-    getMessages();
+  // useEffect(() => {
+  //   getMessages();
 
-    const channel = supabase
-      .channel("public:chat")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "chat" },
-        (payload) => {
-          setAllMessages((prev) => [...prev, payload.new]);
-        }
-      )
-      .subscribe();
+  //   const channel = supabase
+  //     .channel("public:chat")
+  //     .on(
+  //       "postgres_changes",
+  //       { event: "INSERT", schema: "public", table: "chat" },
+  //       (payload) => {
+  //         setAllMessages((prev) => [...prev, payload.new]);
+  //       }
+  //     )
+  //     .subscribe();
 
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, []);
+  //   return () => {
+  //     supabase.removeChannel(channel);
+  //   };
+  // }, []);
 
-  async function getMessages() {
-    try {
-      const { data, error } = await supabase
-        .from("chat")
-        .select("*")
-        .order("created_at", { ascending: true });
+  // async function getMessages() {
+  //   try {
+  //     const { data, error } = await supabase
+  //       .from("chat")
+  //       .select("*")
+  //       .order("created_at", { ascending: true });
 
-      if (error) console.log("Ошибка в загрузке сообщений чата:", error);
-      else {
-        setAllMessages(data);
-      }
-    } catch (err) {
-      console.log("Непредвиденная ошибка при загрузке сообщений чата:", err);
-    }
-  }
+  //     if (error) console.log("Ошибка в загрузке сообщений чата:", error);
+  //     else {
+  //       setAllMessages(data);
+  //     }
+  //   } catch (err) {
+  //     console.log("Непредвиденная ошибка при загрузке сообщений чата:", err);
+  //   }
+  // }
 
   function closeForm(e) {
     e.preventDefault();
     setShowForm(false);
   }
 
-  console.log(allMessages);
   return (
     <div className={styles.chatContainer}>
       <div

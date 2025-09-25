@@ -27,7 +27,8 @@ $bp-xl: 1280px;
       gap: 40px;
       overflow-x: auto;
       scroll-behavior: smooth;
-      padding-bottom: 10px; // чтобы контент не прилипал к краю
+      padding-bottom: 10px;
+      margin-bottom: 20px;
 
       .reviewCard {
         flex: 0 0 300px;

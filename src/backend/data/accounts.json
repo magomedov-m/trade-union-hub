@@ -1,4 +1,5 @@
-[{
+[
+  {
     "fullName": "Илья Ковалев",
     "faculty": "Физкультуры",
     "phone": "+7 916 123 45 67",
@@ -177,4 +178,19 @@
     "photo": "📸 Есть",
     "socialMedia": "VK: vk.com/nikolay_law",
     "position": "Профессор"
-  }]
+  },
+  {
+    "id": 1758746500962,
+    "fullName": "Али",
+    "key": "5",
+    "faculty": "Юридический ",
+    "phone": "9345552311",
+    "email": "ali@gmail.com",
+    "experience": "5 лет",
+    "education": "Юрист, криминолог",
+    "skills": "Проведение расследований",
+    "photo": "📸 Пока нет",
+    "socialMedia": "Telegram: @ali_ps",
+    "position": "Преподаватель"
+  }
+]

@@ -1,0 +1,21 @@
+import React from "react";
+import ContentLoader, { IContentLoaderProps } from "react-content-loader";
+
+const MyLoader: React.FC<IContentLoaderProps> = (props) => (
+  <ContentLoader
+    speed={2}
+    width={800}
+    height={600}
+    viewBox="0 0 800 600"
+    backgroundColor="#dbdbdb"
+    foregroundColor="#ffffff"
+    {...props}
+  >
+    <rect x="0" y="47" rx="0" ry="0" width="118" height="11" />
+    <rect x="0" y="67" rx="0" ry="0" width="400" height="124" />
+    <rect x="0" y="202" rx="0" ry="0" width="180" height="25" />
+    <rect x="0" y="245" rx="17" ry="17" width="144" height="51" />
+  </ContentLoader>
+);
+
+export default MyLoader;
