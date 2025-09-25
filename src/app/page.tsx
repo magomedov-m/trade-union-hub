@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { pageTransitions, pageVariables } from "./_pageAnimations";
 import ChatBox from "../AI-agent-chat/ChatBox";
 
-const Home: React.FC = () => {
+export default function Home () {
   return (
     <motion.div
       className={styles.page}
@@ -29,5 +29,3 @@ const Home: React.FC = () => {
     </motion.div>
   );
 }
-
-export default Home;
