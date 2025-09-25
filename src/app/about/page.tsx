@@ -1,0 +1,98 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import { motion } from "framer-motion";
+import { pageVariables, pageTransitions } from "../_pageAnimations";
+import styles from "./AboutUsPage.module.scss";
+import FeedbackDSMU from "../../components/FeedbackDSMU/FeedbackDSMU";
+
+const About: React.FC = () => {
+
+  return (
+    <motion.div
+      exit={pageVariables.out}
+      animate={pageVariables.in}
+      initial={pageVariables.out}
+      transition={pageTransitions}
+      className={styles.container}
+    >
+      <section className={styles.hero}>
+        <h1 className={styles.title}>О нас</h1>
+        <p className={styles.subtitle}>
+          Профсоюзная организация Дагестанского государственного медицинского
+          университета — это место, где заботятся о студентах и сотрудниках
+          университета.
+        </p>
+        <button className={styles.ctaButton}>Узнать больше</button>
+      </section>
+
+      <section className={styles.mission}>
+        <h2>Наша миссия</h2>
+        <p>
+          Наша главная цель — защита прав и интересов членов профсоюза. Мы
+          стремимся обеспечить комфортные условия для работы, обучения и отдыха
+          сотрудников и студентов.
+        </p>
+        <p>
+          Организация регулярно проводит мероприятия, тренинги и встречи для
+          улучшения профессионального и личного развития своих членов.
+        </p>
+        <img
+          className={styles.missionImage}
+          src="/images/teamwork.svg"
+          alt="Командная работа"
+        />
+      </section>
+
+      <section className={styles.features}>
+        <h2>Что мы предлагаем?</h2>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureCard}>
+            <img src="/images/news.svg" alt="Новости" />
+            <h3>Актуальные новости</h3>
+            <p>Будьте в курсе всех событий и мероприятий в университете.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <img src="/images/calendar.svg" alt="Календарь" />
+            <h3>Календарь мероприятий</h3>
+            <p>Следите за предстоящими событиями и участвуйте в них.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <img src="/images/documents.svg" alt="Документы" />
+            <h3>Полезные документы</h3>
+            <p>Получите доступ к важным материалам и ресурсам.</p>
+          </div>
+          <div className={styles.featureCard}>
+            <img src="/images/support.svg" alt="Поддержка" />
+            <h3>Поддержка</h3>
+            <p>Мы всегда готовы ответить на ваши вопросы и помочь.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.team}>
+        <h2>Наша команда</h2>
+        <div className={styles.teamFlex}>
+          <div className={styles.teamMember}>
+            <img src="/images/team1.jpg" alt="Член команды" />
+            <h3>Гусейнова Сабина</h3>
+            <p>Заведующая кафедрой анатомии человека</p>
+          </div>
+          <div className={styles.teamMember}>
+            <img src="/images/team2.jpg" alt="Член команды" />
+            <h3>Дамаданова Аминат</h3>
+            <p>Бухгалтер расчетного отдела</p>
+          </div>
+          <div className={styles.teamMember}>
+            <img src="/images/team3.jpg" alt="Член команды" />
+            <h3>Гарунова Раисат</h3>
+            <p>Старший преподаватель кафедры физиологии</p>
+          </div>
+        </div>
+      </section>
+
+      <FeedbackDSMU />
+    </motion.div>
+  );
+}
+
+export default About;
