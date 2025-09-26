@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./EmployeeRegistry.module.scss";
 import { motion } from "framer-motion";
 import { pageVariables, pageTransitions } from "../_pageAnimations";
-import { createAccountUrl } from "../../backend/api/url.ts";
+import { createAccountUrl } from "../../backend/api/url";
 import { employeesDefaultData } from "../../backend/data/defaultData";
 
 interface Employee {
