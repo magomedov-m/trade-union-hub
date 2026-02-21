@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "node server.js",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -36,6 +38,7 @@
     "@types/express": "^4.17.23",
     "@types/node": "^24.5.2",
     "@types/react": "^18.3.24",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "typescript": "^5.9.2"

@@ -1,41 +1,41 @@
 [
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758735029104,
     "first_name": "Магомед",
     "last_name": "Магомедов",
     "msg": "Здесь мне нравится. Остаемся!"
   },
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758772707873,
     "first_name": "Алексей",
     "last_name": "Иванов",
     "msg": "Все четко!"
   },
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758800001234,
     "first_name": "Ирина",
     "last_name": "Петрова",
     "msg": "Отличная организация, спасибо!"
   },
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758823456789,
     "first_name": "Сергей",
     "last_name": "Кузнецов",
     "msg": "Очень полезно и информативно."
   },
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758845678901,
     "first_name": "Ольга",
     "last_name": "Смирнова",
     "msg": "Мне понравились мероприятия!"
   },
   {
-    "is_approved": false,
+    "is_approved": true,
     "created_at": 1758867890123,
     "first_name": "Дмитрий",
     "last_name": "Иванов",
@@ -47,5 +47,12 @@
     "first_name": "Jane",
     "last_name": "Smith",
     "msg": "Мне очень понравилось. Хорошая работа."
+  },
+  {
+    "is_approved": true,
+    "created_at": 1771677195933,
+    "first_name": "Джони",
+    "last_name": "Джонович",
+    "msg": "Все рили гуд"
   }
 ]

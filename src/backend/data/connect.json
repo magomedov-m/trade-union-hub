@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "name": "Шамиль",
+    "mail": "Абдулаев",
+    "phone": "88888888888",
+    "message": "Как же тут хорошо",
+    "created_at": 1771676219015,
+    "is_read": false
+  },
+  {
+    "name": "User",
+    "mail": "Магомедов",
+    "phone": "9345552311",
+    "message": "вфыа",
+    "created_at": 1771676416598,
+    "is_read": false
+  },
+  {
+    "name": "Ура",
+    "mail": "ураев",
+    "phone": "5555",
+    "message": "жфылвоа",
+    "created_at": 1771676443883,
+    "is_read": false
+  },
+  {
+    "name": "Я",
+    "mail": "Моя",
+    "phone": "Крутой",
+    "message": "Такое вот",
+    "created_at": 1771678161582,
+    "is_read": false
+  }
+]
