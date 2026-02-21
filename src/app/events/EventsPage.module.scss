@@ -1,11 +1,11 @@
 @import "../variables.scss";
 
 /* --- Breakpoints --- */
-$bp-xs: 360px;   // мобильные очень маленькие
-$bp-sm: 480px;   // мобильные обычные
-$bp-md: 768px;   // планшеты
-$bp-lg: 1024px;  // десктоп маленький
-$bp-xl: 1280px;  // десктоп большой
+$bp-xs: 360px; // мобильные очень маленькие
+$bp-sm: 480px; // мобильные обычные
+$bp-md: 768px; // планшеты
+$bp-lg: 1024px; // десктоп маленький
+$bp-xl: 1280px; // десктоп большой
 
 /* --- Container --- */
 .container {
@@ -86,7 +86,47 @@ $bp-xl: 1280px;  // десктоп большой
       color: $text-primary;
       line-height: 1.5;
     }
+
+    .eventLocation {
+      font-size: 14px;
+      color: $text-secondary;
+      margin-bottom: 8px;
+    }
+
+    .eventCategory {
+      font-size: 14px;
+      color: $text-secondary;
+      margin-bottom: 8px;
+    }
+
+    .eventOrganizer {
+      font-size: 14px;
+      color: $text-secondary;
+      margin-top: 10px;
+    }
+
+    .eventParticipants {
+      font-size: 14px;
+      color: $text-secondary;
+    }
   }
+}
+
+/* --- Add Form Container --- */
+.addFormContainer {
+  background: $background-light;
+  border-radius: 12px;
+  box-shadow: $shadow-light;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/* --- No Events --- */
+.noEvents {
+  text-align: center;
+  font-size: 18px;
+  color: $text-secondary;
+  padding: 40px;
 }
 
 /* --- Adaptive Styles --- */
