@@ -1,8 +1,13 @@
 import { create } from 'zustand'
 
-const useStore = create((set) => ({
+interface StoreState {
+  key: string;
+  updateKey: (newKey: string) => void;
+}
+
+const useStore = create<StoreState>((set) => ({
   key: '',
-  updateKey: (newKey: boolean) => set({ key: newKey }),
+  updateKey: (newKey) => set({ key: newKey }),
 }))
 
 export default useStore;

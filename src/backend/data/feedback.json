@@ -40,5 +40,19 @@
     "first_name": "Дмитрий",
     "last_name": "Иванов",
     "msg": "Все супер, продолжайте в том же духе!"
+  },
+  {
+    "is_approved": true,
+    "created_at": 1758879524026,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "msg": "Мне очень понравилось. Хорошая работа."
+  },
+  {
+    "is_approved": true,
+    "created_at": 1771677195933,
+    "first_name": "Джони",
+    "last_name": "Джонович",
+    "msg": "Все рили гуд"
   }
 ]
