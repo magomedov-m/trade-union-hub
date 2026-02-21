@@ -1,167 +1,289 @@
-@import '../variables.scss';
+@import "../variables.scss";
 
 .container {
-  width: 1140px;
+  width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 .hero {
   text-align: center;
-  background: linear-gradient(120deg, #d9f2ff, #f9faff);
-  padding: 60px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 50%
+      );
+    animation: pulse 4s ease-in-out infinite;
+  }
 
   .title {
-    font-size: 36px;
-    font-weight: bold;
-    color: $primary-color;
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.6s ease-out;
   }
 
   .subtitle {
     font-size: 18px;
-    color: $text-secondary;
+    color: rgba(255, 255, 255, 0.9);
     margin-top: 15px;
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.6s ease-out 0.2s backwards;
   }
 
   .ctaButton {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 24px;
+    padding: 14px 32px;
     font-size: 16px;
+    font-weight: 600;
     color: #fff;
-    background: $primary-color;
-    border: none;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.6s ease-out 0.4s backwards;
 
     &:hover {
-      background: darken($primary-color, 10%);
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
   }
 }
 
 .mission {
-  margin-bottom: 60px;
-  line-height: 1.6;
+  margin-bottom: 70px;
+  line-height: 1.8;
   text-align: center;
 
   h2 {
-    font-size: 28px;
-    color: $primary-color;
-    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
   }
 
   p {
-    font-size: 16px;
-    color: $text-primary;
-    margin-bottom: 15px;
+    font-size: 17px;
+    color: #4b5563;
+    margin-bottom: 20px;
     text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .missionImage {
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto 0;
+    max-width: 700px;
+    margin: 30px auto 0;
     display: block;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 }
 
 .features {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 
   h2 {
-    font-size: 28px;
-    color: $primary-color;
-    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
     text-align: center;
+    letter-spacing: -0.5px;
   }
 
   .featuresGrid {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
 
     .featureCard {
-      background: linear-gradient(120deg, #f0f9ff, #ffffff);
-      padding: 20px;
-      width: 250px;
-      border-radius: 12px;
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      padding: 30px 24px;
+      width: 280px;
+      border-radius: 20px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow:
+        0 4px 20px rgba(99, 102, 241, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.05),
+          rgba(139, 92, 246, 0.05)
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
 
       &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 47, 255, 0.39);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow:
+          0 15px 40px rgba(99, 102, 241, 0.2),
+          0 6px 16px rgba(0, 0, 0, 0.1);
+
+        &::before {
+          opacity: 1;
+        }
       }
 
       img {
         width: 80px;
         height: 80px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        border-radius: 16px;
+        transition: transform 0.4s ease;
+
+        .featureCard:hover & {
+          transform: scale(1.1) rotate(5deg);
+        }
       }
 
       h3 {
         font-size: 20px;
-        color: $primary-color;
-        margin-bottom: 10px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+
+        .featureCard:hover & {
+          color: #6366f1;
+        }
       }
 
       p {
-        font-size: 14px;
-        color: $text-secondary;
+        font-size: 15px;
+        color: #64748b;
+        line-height: 1.6;
       }
     }
   }
 }
 
 .team {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 
   h2 {
-    font-size: 28px;
-    color: $primary-color;
-    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
     text-align: center;
+    letter-spacing: -0.5px;
   }
 
   .teamFlex {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
 
     .teamMember {
       display: flex;
       flex-direction: column;
       text-align: center;
-      background-color: #fbfbfd;
-      border-radius: 10px;
-      justify-content: space-around;
-      width: 300px;
-      height: 200px;
-      border: 1px rgb(166, 211, 218) solid;
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 20px;
+      padding: 30px 24px;
+      width: 280px;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      box-shadow:
+        0 4px 20px rgba(99, 102, 241, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow:
+          0 15px 40px rgba(99, 102, 241, 0.2),
+          0 6px 16px rgba(0, 0, 0, 0.1);
+      }
 
       img {
-        width: 100%;
-        max-width: 150px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        object-fit: cover;
+        border: 4px solid rgba(99, 102, 241, 0.1);
+        transition: all 0.4s ease;
+
+        .teamMember:hover & {
+          border-color: rgba(99, 102, 241, 0.3);
+          transform: scale(1.05);
+        }
       }
 
       h3 {
         font-size: 18px;
-        color: $primary-color;
-        margin-bottom: 5px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 8px;
+        transition: color 0.3s ease;
+
+        .teamMember:hover & {
+          color: #6366f1;
+        }
       }
 
       p {
-        font-size: 14px;
-        color: $text-secondary;
+        font-size: 15px;
+        color: #64748b;
       }
     }
   }
@@ -173,21 +295,27 @@
 @media (max-width: 360px) {
   .container {
     width: 100%;
-    padding: 10px;
+    padding: 20px 15px;
+  }
+
+  .hero {
+    padding: 50px 20px;
   }
 
   .hero .title {
-    font-size: 24px;
+    font-size: 28px;
   }
   .hero .subtitle {
-    font-size: 14px;
+    font-size: 15px;
   }
 
-  .featuresGrid {
-    flex-direction: column;
-    align-items: center;
+  .mission h2,
+  .features h2,
+  .team h2 {
+    font-size: 26px;
   }
 
+  .featuresGrid,
   .teamFlex {
     flex-direction: column;
     align-items: center;
@@ -198,21 +326,23 @@
 @media (max-width: 576px) {
   .container {
     width: 100%;
-    padding: 15px;
+    padding: 25px 20px;
   }
 
   .hero .title {
-    font-size: 26px;
+    font-size: 30px;
   }
   .hero .subtitle {
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  .featuresGrid {
-    flex-direction: column;
-    align-items: center;
+  .mission h2,
+  .features h2,
+  .team h2 {
+    font-size: 28px;
   }
 
+  .featuresGrid,
   .teamFlex {
     flex-direction: column;
     align-items: center;
@@ -223,20 +353,26 @@
 @media (max-width: 768px) {
   .container {
     width: 100%;
-    padding: 15px;
+    padding: 25px 20px;
   }
 
   .hero .title {
+    font-size: 34px;
+  }
+
+  .mission h2,
+  .features h2,
+  .team h2 {
     font-size: 30px;
   }
 
   .featuresGrid {
-    gap: 15px;
+    gap: 24px;
     justify-content: center;
   }
 
   .teamFlex {
-    gap: 15px;
+    gap: 24px;
     justify-content: center;
   }
 }
@@ -244,17 +380,17 @@
 /* LG (769px – 992px) */
 @media (max-width: 992px) {
   .container {
-    width: 90%;
+    width: 95%;
   }
 
   .featuresGrid {
     justify-content: center;
-    gap: 20px;
+    gap: 28px;
   }
 
   .teamFlex {
     justify-content: center;
-    gap: 20px;
+    gap: 28px;
   }
 }
 

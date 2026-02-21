@@ -1,8 +1,20 @@
-@import '../../app/variables.scss';
+@import "../../app/variables.scss";
 
 .contentBlock {
-    width: 1050px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 24px;
+  }
 }

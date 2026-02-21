@@ -8,52 +8,110 @@ $bp-xl: 1280px;
 
 .feedbackMessages {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 25px;
+  padding: 40px 30px;
 
   .reviews {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     text-align: center;
 
     h2 {
-      font-size: 28px;
-      color: $primary-color;
-      margin-bottom: 30px;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
     }
 
     .reviewsSlider {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       overflow-x: auto;
       scroll-behavior: smooth;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      padding: 20px 10px 30px;
+      margin-bottom: 30px;
+      scrollbar-width: thin;
+      scrollbar-color: #6366f1 #e5e7eb;
+
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        border-radius: 4px;
+      }
 
       .reviewCard {
-        flex: 0 0 300px;
-        background: #f9f9f9;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex: 0 0 340px;
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        padding: 28px 24px;
+        border-radius: 20px;
+        box-shadow:
+          0 4px 20px rgba(99, 102, 241, 0.1),
+          0 2px 8px rgba(0, 0, 0, 0.05);
         text-align: left;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 1px solid rgba(99, 102, 241, 0.1);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.05),
+            rgba(139, 92, 246, 0.05)
+          );
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+
+        &:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow:
+            0 15px 40px rgba(99, 102, 241, 0.2),
+            0 6px 16px rgba(0, 0, 0, 0.1);
+
+          &::before {
+            opacity: 1;
+          }
+        }
 
         h3 {
-          font-size: 16px;
-          color: $text-secondary;
-          margin-bottom: 10px;
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 16px;
+          font-weight: 500;
         }
 
         p {
-          font-size: 22px;
-          color: $text-primary;
-          margin-bottom: 10px;
+          font-size: 18px;
+          color: #1f2937;
+          margin-bottom: 20px;
+          line-height: 1.7;
+          font-weight: 400;
         }
 
         h4 {
-          font-size: 20px;
-          color: $primary-color;
-          font-weight: bold;
+          font-size: 18px;
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-weight: 700;
         }
       }
     }
@@ -66,12 +124,22 @@ $bp-xl: 1280px;
 
 // XS: до 360px
 @media (max-width: $bp-xs) {
+  .feedbackMessages {
+    padding: 30px 20px;
+  }
+
+  .reviews {
+    h2 {
+      font-size: 26px;
+    }
+  }
+
   .reviewsSlider {
-    gap: 10px;
+    gap: 16px;
 
     .reviewCard {
-      flex: 0 0 220px;
-      padding: 15px;
+      flex: 0 0 260px;
+      padding: 20px 16px;
 
       p {
         font-size: 16px;
@@ -87,17 +155,17 @@ $bp-xl: 1280px;
 // SM: до 480px
 @media (max-width: $bp-sm) {
   .reviewsSlider {
-    gap: 15px;
+    gap: 20px;
 
     .reviewCard {
-      flex: 0 0 240px;
+      flex: 0 0 280px;
 
       p {
-        font-size: 18px;
+        font-size: 17px;
       }
 
       h4 {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   }
@@ -106,20 +174,20 @@ $bp-xl: 1280px;
 // MD: до 768px
 @media (max-width: $bp-md) {
   .reviewsSlider {
-    gap: 20px;
+    gap: 24px;
     flex-wrap: nowrap;
     justify-content: flex-start;
 
     .reviewCard {
-      flex: 0 0 260px;
-      padding: 18px;
+      flex: 0 0 300px;
+      padding: 24px 20px;
 
       p {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       h4 {
-        font-size: 19px;
+        font-size: 18px;
       }
     }
   }
@@ -128,10 +196,10 @@ $bp-xl: 1280px;
 // LG: до 1024px
 @media (max-width: $bp-lg) {
   .reviewsSlider {
-    gap: 25px;
+    gap: 28px;
 
     .reviewCard {
-      flex: 0 0 280px;
+      flex: 0 0 320px;
     }
   }
 }
@@ -142,7 +210,7 @@ $bp-xl: 1280px;
     gap: 30px;
 
     .reviewCard {
-      flex: 0 0 300px;
+      flex: 0 0 340px;
     }
   }
 }
