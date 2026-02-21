@@ -1,47 +1,92 @@
 .card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 12px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 500px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow:
+    0 4px 20px rgba(99, 102, 241, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  width: 520px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.03),
+      rgba(139, 92, 246, 0.03)
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+      0 12px 30px rgba(99, 102, 241, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &::before {
+      opacity: 1;
+    }
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 8px;
-  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .date {
-  color: #888888;
+  color: #6366f1;
   font-size: 14px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 8px;
 }
 
 .name {
-  font-weight: bold;
-  font-size: 16px;
-  color: #333333;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+  transition: color 0.3s ease;
+
+  .card:hover & {
+    color: #6366f1;
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .detail {
-  font-size: 14px;
-  color: #555555;
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
 }
 
 .message {
-  font-size: 14px;
-  color: #444444;
-  padding-top: 8px;
-  border-top: 1px dashed #e0e0e0;
+  font-size: 15px;
+  color: #374151;
+  padding-top: 16px;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  line-height: 1.7;
+  font-weight: 400;
 }

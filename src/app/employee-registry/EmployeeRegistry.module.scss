@@ -1,47 +1,85 @@
 /* --- Breakpoints --- */
-$bp-xs: 360px;   // очень маленькие телефоны
-$bp-sm: 480px;   // обычные телефоны
-$bp-md: 768px;   // планшеты
-$bp-lg: 1024px;  // десктоп маленький
-$bp-xl: 1280px;  // десктоп большой
+$bp-xs: 360px; // очень маленькие телефоны
+$bp-sm: 480px; // обычные телефоны
+$bp-md: 768px; // планшеты
+$bp-lg: 1024px; // десктоп маленький
+$bp-xl: 1280px; // десктоп большой
 
 /* --- Registry Page --- */
 .registryPage {
-  padding: 2rem;
-  background-color: #f9fafb;
-  font-family: 'Segoe UI', sans-serif;
-  max-width: 1140px;
+  padding: 50px 30px;
+  background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  max-width: 1200px;
   width: 95%;
   min-height: 100vh;
   margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 70%
+    );
+    animation: pulse 6s ease-in-out infinite;
+  }
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #1e293b;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
   }
 }
 
 .fullName {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* --- Search Section --- */
 .searchSection {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
 
   input {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 16px 20px;
     font-size: 1rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 0.5rem;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
     outline: none;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
 
     &:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      border-color: #6366f1;
+      box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.1),
+        0 4px 16px rgba(99, 102, 241, 0.15);
+    }
+
+    &::placeholder {
+      color: #9ca3af;
     }
   }
 }
@@ -49,8 +87,10 @@ $bp-xl: 1280px;  // десктоп большой
 /* --- Grid --- */
 .grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Card --- */
@@ -58,15 +98,40 @@ $bp-xl: 1280px;  // десктоп большой
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow:
+    0 4px 20px rgba(99, 102, 241, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.05),
+      rgba(139, 92, 246, 0.05)
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 15px 40px rgba(99, 102, 241, 0.2),
+      0 6px 16px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
   }
 }
 
@@ -75,12 +140,19 @@ $bp-xl: 1280px;  // десктоп большой
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 .avatar {
   font-size: 2.5rem;
-  color: #64748b;
+  color: #6366f1;
   margin-right: 1rem;
+  transition: transform 0.4s ease;
+
+  .card:hover & {
+    transform: scale(1.1);
+  }
 }
 
 .info {
@@ -88,72 +160,101 @@ $bp-xl: 1280px;  // десктоп большой
 
   h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #0f172a;
+    font-weight: 700;
+    transition: color 0.3s ease;
+
+    .card:hover & {
+      color: #6366f1;
+    }
   }
 
   p {
-    margin: 0.25rem 0;
+    margin: 0.35rem 0;
     font-size: 0.95rem;
-    color: #334155;
+    color: #475569;
   }
 }
 
 .status {
-  font-size: 14px;
-  padding: 0.2rem 0.5rem;
-  border-radius: 10px;
-  background-color: #d1fae5;
-  color: #065f46;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(5, 150, 105, 0.1)
+  );
+  color: #059669;
   display: inline-block;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
 }
 
 /* --- Details --- */
 .details {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   font-size: 0.95rem;
   color: #475569;
+  position: relative;
+  z-index: 1;
 
   p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
 }
 
 .contacts {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 
   a {
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
     font-size: 1rem;
-    color: #3b82f6;
-    transition: .4s;
+    color: #6366f1;
+    transition: all 0.3s ease;
+    font-weight: 500;
 
     &:hover {
-      color: #2368d6;
+      color: #8b5cf6;
+      transform: translateY(-2px);
     }
   }
 }
 
 .messageBtn {
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  background-color: #3b82f6;
+  margin-top: 1rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: white;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+  }
 }
 
 .expandButton {
   background: none;
   border: none;
   cursor: pointer;
+  color: #6366f1;
+  transition: all 0.3s ease;
 
   svg {
     transition: transform 0.3s ease;
     font-size: 1.5rem;
+  }
+
+  &:hover {
+    color: #8b5cf6;
+    transform: scale(1.1);
   }
 }
 
@@ -162,16 +263,28 @@ $bp-xl: 1280px;  // десктоп большой
 }
 
 /* --- Color Coding Departments --- */
-.it { color: #3b82f6; }
-.hr { color: #10b981; }
-.marketing { color: #f59e0b; }
+.it {
+  color: #6366f1;
+}
+.hr {
+  color: #10b981;
+}
+.marketing {
+  color: #f59e0b;
+}
 
 /* --- Adaptive Styles --- */
 
 /* XS (до 360px) — 1 колонка */
 @media (max-width: $bp-xs) {
+  .registryPage {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -179,6 +292,7 @@ $bp-xl: 1280px;  // десктоп большой
 @media (min-width: $bp-xs) and (max-width: $bp-sm) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
 
@@ -186,6 +300,7 @@ $bp-xl: 1280px;  // десктоп большой
 @media (min-width: $bp-sm) and (max-width: $bp-md) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
@@ -193,6 +308,7 @@ $bp-xl: 1280px;  // десктоп большой
 @media (min-width: $bp-md) and (max-width: $bp-lg) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
 }
 
@@ -200,6 +316,7 @@ $bp-xl: 1280px;  // десктоп большой
 @media (min-width: $bp-lg) and (max-width: $bp-xl) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 }
 

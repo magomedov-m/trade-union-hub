@@ -7,21 +7,78 @@ $bp-xl: 1280px;
 
 .banner {
   width: 100%;
-  max-width: 1140px;
-  height: 700px;
+  max-width: 1200px;
+  height: 650px;
   margin: 0 auto;
-  background-color: hsla(10,0%,100%,1);
-  background-image:
-    radial-gradient(at 24% 28%, hsla(214,69%,66%,0.63) 0px, transparent 50%),
-    radial-gradient(at 37% 19%, hsla(197,73%,78%,1) 0px, transparent 50%),
-    radial-gradient(at 67% 90%, hsla(217,85%,64%,1) 0px, transparent 50%);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #6366f1 100%);
+  box-shadow:
+    0 20px 60px rgba(99, 102, 241, 0.3),
+    0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 255, 255, 0.05) 0%,
+        transparent 60%
+      );
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    right: -20%;
+    width: 60%;
+    height: 150%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(25deg);
+    animation: shimmer 8s linear infinite;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 25px 70px rgba(99, 102, 241, 0.4),
+      0 10px 25px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .title {
-  font-weight: bold;
+  font-weight: 800;
   font-size: 55px;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  letter-spacing: -1px;
+  animation: slideUp 0.8s ease-out;
+  margin-bottom: 16px;
+
+  span {
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
   @media (max-width: $bp-xl) {
     font-size: 48px;
@@ -42,7 +99,12 @@ $bp-xl: 1280px;
 
 .description {
   font-size: 24px;
-  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 32px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.8s ease-out 0.2s backwards;
 
   @media (max-width: $bp-lg) {
     font-size: 20px;
@@ -60,40 +122,86 @@ $bp-xl: 1280px;
 
 .btn {
   font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease-out 0.4s backwards;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.1)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+  }
 
   @media (max-width: $bp-md) {
     font-size: 20px;
+    padding: 14px 32px;
   }
   @media (max-width: $bp-sm) {
     font-size: 18px;
+    padding: 12px 28px;
   }
   @media (max-width: $bp-xs) {
     font-size: 16px;
+    padding: 10px 24px;
   }
 }
 
 .historyPPOMU {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 200px 50px;
-  width: 300px;
-  height: 150px;
+  justify-content: center;
+  margin: 0 50px;
+  width: 400px;
+  max-width: 90%;
+  z-index: 1;
+  animation: fadeIn 1s ease-out 0.6s backwards;
 
   @media (max-width: $bp-lg) {
-    margin: 150px 30px;
-    width: 260px;
+    margin: 0 30px;
+    width: 350px;
   }
   @media (max-width: $bp-md) {
-    margin: 100px 20px;
-    width: 220px;
+    margin: 0 20px;
+    width: 300px;
   }
   @media (max-width: $bp-sm) {
-    margin: 80px 15px;
-    width: 200px;
+    margin: 0 15px;
+    width: 260px;
   }
   @media (max-width: $bp-xs) {
-    margin: 60px 10px;
-    width: 180px;
+    margin: 0 10px;
+    width: 240px;
   }
 }

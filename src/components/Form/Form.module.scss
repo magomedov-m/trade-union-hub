@@ -6,14 +6,38 @@ $bp-lg: 1024px;
 $bp-xl: 1280px;
 
 .formContainer {
-  padding: 20px 10px;
-  width: 400px;
-  min-height: 450px;
-  border-radius: 10px;
-  background-color: rgba(241, 239, 239, 0.863);
+  padding: 32px 28px;
+  width: 420px;
+  min-height: 480px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow:
+    0 10px 40px rgba(99, 102, 241, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  &:hover {
+    box-shadow:
+      0 15px 50px rgba(99, 102, 241, 0.2),
+      0 6px 16px rgba(0, 0, 0, 0.08);
+  }
 
   @media (max-width: $bp-lg) {
-    width: 350px;
+    width: 380px;
   }
   @media (max-width: $bp-md) {
     width: 90%;
@@ -22,88 +46,134 @@ $bp-xl: 1280px;
   @media (max-width: $bp-sm) {
     width: 95%;
     margin-bottom: 20px;
+    padding: 28px 24px;
   }
   @media (max-width: $bp-xs) {
     width: 96%;
+    padding: 24px 20px;
   }
-}
-
-.titleInput {
-  font-size: 23px;
-
-  @media (max-width: $bp-md) {
-    font-size: 20px;
-  }
-  @media (max-width: $bp-sm) {
-    font-size: 18px;
-  }
-  @media (max-width: $bp-xs) {
-    font-size: 16px;
-  }
-}
-
-.textFieldBlock {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 200px;
-}
-
-.textarea {
-  min-width: 200px;
-  max-width: 100%;
-  min-height: 60px;
-  max-height: 140px;
-  margin-bottom: 20px;
-  font-size: 20px;
-
-  @media (max-width: $bp-md) {
-    font-size: 18px;
-  }
-  @media (max-width: $bp-sm) {
-    font-size: 16px;
-  }
-  @media (max-width: $bp-xs) {
-    font-size: 14px;
-  }
-}
-
-.text {
-  margin-bottom: 25px;
 }
 
 .h1 {
   display: flex;
   justify-content: center;
-  color: rgb(54, 185, 42);
-  font-weight: bold;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
   font-size: 28px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 
   @media (max-width: $bp-md) {
-    font-size: 24px;
+    font-size: 26px;
   }
   @media (max-width: $bp-sm) {
-    font-size: 22px;
+    font-size: 24px;
   }
   @media (max-width: $bp-xs) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 .h2 {
   display: flex;
   justify-content: center;
-  font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  font-size: 18px;
+  color: #64748b;
 
   @media (max-width: $bp-md) {
-    font-size: 20px;
+    font-size: 17px;
+    margin-bottom: 24px;
   }
   @media (max-width: $bp-sm) {
-    font-size: 18px;
+    font-size: 16px;
   }
   @media (max-width: $bp-xs) {
-    font-size: 16px;
+    font-size: 15px;
+  }
+}
+
+.textFieldBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titleInput {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+
+  @media (max-width: $bp-md) {
+    font-size: 15px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 14px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 13px;
+  }
+}
+
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  max-height: 160px;
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  resize: vertical;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  }
+
+  &:hover:not(:focus) {
+    border-color: #d1d5db;
+  }
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  @media (max-width: $bp-md) {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  @media (max-width: $bp-xs) {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+.text {
+  margin-bottom: 24px;
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+
+  @media (max-width: $bp-md) {
+    font-size: 14px;
+  }
+  @media (max-width: $bp-sm) {
+    font-size: 13px;
   }
 }
